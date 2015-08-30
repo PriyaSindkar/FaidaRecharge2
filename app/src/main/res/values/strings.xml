@@ -2,5 +2,9 @@
     <string name="app_name">Faida Recharge</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+
+    <string name="my_drawer_activity">Home</string>
+    <string name="openDrawer">OpenDrawer</string>
+    <string name="closeDrawer">CloseDrawer</string>
 </resources>

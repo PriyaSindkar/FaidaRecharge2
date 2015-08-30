@@ -5,4 +5,24 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+
+    </style>
+
+    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">@dimen/STD_MARGIN</item>
+        <item name="android:paddingRight">@dimen/STD_MARGIN</item>
+        <item name="android:paddingTop">@dimen/M_TEXT_SIZE</item>
+        <item name="android:paddingBottom">@dimen/M_TEXT_SIZE</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
 </resources>

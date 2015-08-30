@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
+
+
+
+    <LinearLayout
+        android:layout_margin="@dimen/STD_MARGIN"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/STD_MARGIN"
+        android:id="@+id/linearStores"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/BUTTON_HEIGHT"
+        android:weightSum="3">
+
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="Paytm"/>
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="MobiKwilk"/>
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="Freecharge"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearCategories"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/BUTTON_HEIGHT"
+        android:weightSum="3">
+
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="Any Mobile Recharge Offers"/>
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="Any DTH Recharge Offers"/>
+        <Button
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:text="All Bill Payment Offers"/>
+
+    </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
