@@ -19,8 +19,8 @@ import faidarecharge.com.faidarecharge.R;
 public class OfferFragmentOne extends Fragment {
     OffersAdapter adapter;
     ListView listOffers;
-    List<String> headersList = new ArrayList<>();
-    List<String> detailsList = new ArrayList<>();
+    List<String> headersList;
+    List<String> detailsList;
 
     public static OfferFragmentOne newInstance() {
         OfferFragmentOne f = new OfferFragmentOne();
@@ -46,11 +46,13 @@ public class OfferFragmentOne extends Fragment {
     }
 
     private void initOfferDetails() {
+        headersList = new ArrayList<>();
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
 
+        detailsList = new ArrayList<>();
         detailsList.add("Get Offer Details");
         detailsList.add("Get Offer Details");
         detailsList.add("Get Offer Details");

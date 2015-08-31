@@ -24,9 +24,10 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_gravity="left|top"
+                android:layout_width="@dimen/LOGO_SIZE"
+                android:layout_height="@dimen/LOGO_SIZE"
+                android:src="@drawable/paytm_logo"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -45,7 +46,56 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="#000" />
 
-            <TextView
+                <uiCustomControls.ExpandableTextView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    expandableTextView:maxCollapsedLines="5"
+                    expandableTextView:animDuration="200">
+
+                    <TextView
+                        android:id="@+id/expandable_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+
+                    <TextView
+                        android:background="@drawable/button"
+                        android:id="@+id/promocode_text"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:padding="@dimen/SMALL_STD_MARGIN"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:textColor="@color/primaryColor"
+                            android:id="@+id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Offer Details..."
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/M_TEXT_SIZE" />
+                    </LinearLayout>
+                </uiCustomControls.ExpandableTextView>
+
+                <!--<uiCustomControls.ExpandableTextView
+                    android:id="@+id/lorem_ipsum"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    />-->
+           <!-- <TextView
                 android:layout_marginTop="@dimen/SMALL_STD_MARGIN"
                 android:background="@drawable/button"
                 android:id="@+id/txtOfferDetails"
@@ -57,7 +107,7 @@
                 android:clickable="true"
                 android:layout_gravity="right"
                 android:textSize="@dimen/M_TEXT_SIZE"
-                android:textColor="#fff" />
+                android:textColor="#fff" />-->
             </LinearLayout>
 
         </LinearLayout>

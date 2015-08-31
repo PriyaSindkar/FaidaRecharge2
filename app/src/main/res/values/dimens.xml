@@ -9,4 +9,6 @@
     <dimen name="STD_PADDING">4dp</dimen>
     <dimen name="SMALL_STD_MARGIN">2dp</dimen>
     <dimen name="BUTTON_HEIGHT">80dp</dimen>
+
+    <dimen name="LOGO_SIZE">50dp</dimen>
 </resources>

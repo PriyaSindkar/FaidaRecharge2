@@ -1,22 +1,29 @@
 package uiFragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import faidarecharge.com.faidarecharge.R;
 
 /**
  * Created by Priya on 8/30/2015.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
+    private ImageView imgPaytm, imgMobikwik, imgFreecharge;
+    private Button btnMobileRecharge, btnDTHRecharge, btnBillPayment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,7 +32,6 @@ public class HomeFragment extends Fragment {
 
         init(rootView);
 
-
         return rootView;
     }
 
@@ -33,24 +39,77 @@ public class HomeFragment extends Fragment {
         viewPager = (ViewPager) rootView.findViewById(R.id.pager);
         mAdapter = new TabsPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(mAdapter);
+
+        imgPaytm = (ImageView) rootView.findViewById(R.id.imgPaytm);
+        imgMobikwik = (ImageView) rootView.findViewById(R.id.imgMobikwik);
+        imgFreecharge = (ImageView) rootView.findViewById(R.id.imgFreecharge);
+
+        btnMobileRecharge = (Button) rootView.findViewById(R.id.btnMobileRecharge);
+        btnDTHRecharge = (Button) rootView.findViewById(R.id.btnDTHRecharge);
+        btnBillPayment = (Button) rootView.findViewById(R.id.btnBillPayment);
+
+        imgPaytm.setOnClickListener(this);
+        imgMobikwik.setOnClickListener(this);
+        imgFreecharge.setOnClickListener(this);
+
+        btnMobileRecharge.setOnClickListener(this);
+        btnDTHRecharge.setOnClickListener(this);
+        btnBillPayment.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        switch (view.getId()) {
+            case R.id.imgPaytm:
+                String url = "http://www.paytm.com";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+
+            case R.id.imgFreecharge:
+                url = "http://www.freecharge.in";
+                i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+
+            case R.id.imgMobikwik:
+                url = "http://www.mobikwik.com";
+                i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+
+            case R.id.btnMobileRecharge:
+                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case R.id.btnDTHRecharge:
+                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case R.id.btnBillPayment:
+                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+        }
     }
 
     public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-
-        //private final String[] TITLES = { "","" };
-
-
         public TabsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
-
-       /* @Override
-        public CharSequence getPageTitle(int position) {
-            return TITLES[position];
-        }*/
-
 
         @Override
         public int getCount() {
@@ -60,7 +119,6 @@ public class HomeFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-
             if (position==0) {
                 return OfferFragmentOne.newInstance();
             }else if(position==1) {
@@ -70,8 +128,6 @@ public class HomeFragment extends Fragment {
                 return OfferFragmentOne.newInstance();
             }
         }
-
-
     }
 
 }

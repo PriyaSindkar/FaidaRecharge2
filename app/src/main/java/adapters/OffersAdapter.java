@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import faidarecharge.com.faidarecharge.R;
+import uiCustomControls.ExpandableTextView;
 
 /**
  * Created by Priya on 8/30/2015.
@@ -53,16 +54,28 @@ public class OffersAdapter extends BaseAdapter {
             viewHolder = (CompleteListViewHolder) v.getTag();
         }
         viewHolder.txtDetails.setText(mList.get(position));
-        viewHolder.txtOfferDetails.setText(mListDetails.get(position));
+        //viewHolder.txtOfferDetails.setText(mListDetails.get(position));
+        viewHolder.more.setText("Get Rs .100 Cashback for DTH Recharge of Rs.\n " +
+        "500 or above.\n" +
+                "Offer Details:\n" +
+                "1. Get Rs.100 cashback from Mobikwik for any DTH\n" +
+                "Recharge of Rs.500 or above.\n" +
+                "2. Tap to copy Promocode and apply in the checkout.\n" +
+                "Cashback will be credited to your Mobikwik Wallet.\n" +
+                "3. Only Valid for 3 times use by an user.", "PROMO CODE: 123445");
+
         return v;
+
     }
 }
-class CompleteListViewHolder {
-    public TextView txtDetails, txtOfferDetails;
-    public ImageView logo;
-    public CompleteListViewHolder(View base) {
-        txtDetails = (TextView) base.findViewById(R.id.txtDetails);
-        txtOfferDetails = (TextView) base.findViewById(R.id.txtOfferDetails);
-        logo = (ImageView) base.findViewById(R.id.logo);
+    class CompleteListViewHolder {
+        public TextView txtDetails/*, txtOfferDetails*/;
+        ExpandableTextView more;
+        public ImageView logo;
+        public CompleteListViewHolder(View base) {
+            txtDetails = (TextView) base.findViewById(R.id.txtDetails);
+            //txtOfferDetails = (TextView) base.findViewById(R.id.txtOfferDetails);
+            logo = (ImageView) base.findViewById(R.id.logo);
+            more = (ExpandableTextView) base.findViewById(R.id.more);
+        }
     }
-}
