@@ -48,7 +48,7 @@ public class RedirectToPortalDialog extends Dialog{
         });
 
         AdvancedSpannableString sp = new AdvancedSpannableString("( If you are not redirected to recharge portal automatically then click here)");
-        sp.setColor(Color.parseColor("#8644ad"), "click");
+        sp.setColor(Color.parseColor("#ff69b4"), "click");
 
         footerText.setText(sp);
 

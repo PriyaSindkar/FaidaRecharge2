@@ -2,6 +2,7 @@
 <resources>
 
     <item name="white" type="color">#ffffff</item>
-    <item name="primaryColor" type="color">#8644ad</item>
+    <!--<item name="primaryColor" type="color">#8644ad</item>-->
+    <item name="primaryColor" type="color">#ff69b4</item>
 
 </resources>
