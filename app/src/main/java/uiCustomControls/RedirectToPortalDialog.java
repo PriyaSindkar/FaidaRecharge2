@@ -21,7 +21,7 @@ public class RedirectToPortalDialog extends Dialog{
     ImageView cancel;
 
     Context context;
-    TextView footerText;
+    TextView footerText, edDetails, edHelp;
     boolean isClicked = false;
 
     public RedirectToPortalDialog(Context context) {
@@ -38,6 +38,8 @@ public class RedirectToPortalDialog extends Dialog{
 
         cancel = (ImageView) findViewById(R.id.cancel);
         footerText = (TextView) findViewById(R.id.edFooter);
+        edDetails = (TextView) findViewById(R.id.edDetails);
+        edHelp = (TextView) findViewById(R.id.edHelp);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,9 +50,27 @@ public class RedirectToPortalDialog extends Dialog{
         });
 
         AdvancedSpannableString sp = new AdvancedSpannableString("( If you are not redirected to recharge portal automatically then click here)");
-        sp.setColor(Color.parseColor("#ff69b4"), "click");
-
+        sp.setColor(Color.parseColor("#19b1ec"), "click");
+        sp.setUnderLine("click");
         footerText.setText(sp);
+
+        AdvancedSpannableString sp2 = new AdvancedSpannableString("What next?\n" +
+                "1. You will be taken to recharge portal now. Wait...\n" +
+                "2. Tap again to apply promocode during checkout.\n" +
+                "3. Cashback will be credited by recharge portal\n" +
+                "In your Wallet within few hours!");
+
+        sp2.setBold("What next?");
+        sp2.setBoldItalic("Tap again to apply promocode");
+        edDetails.setText(sp2);
+
+        AdvancedSpannableString sp3 = new AdvancedSpannableString("Still Need Help? Call 9439590547");
+
+        sp3.setColor(Color.parseColor("#c00000"), "39");
+        sp3.setColor(Color.parseColor("#c00000"), "0547");
+        edHelp.setText(sp3);
+
+
 
         footerText.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,13 +16,13 @@ import faidarecharge.com.faidarecharge.R;
 /**
  * Created by Priya on 8/30/2015.
  */
-public class OfferFragmentOne extends Fragment {
+public class OfferFragmentTwo extends Fragment {
     OffersAdapter adapter;
     ListView listOffers;
     List<String> headersList;
 
-    public static OfferFragmentOne newInstance() {
-        OfferFragmentOne f = new OfferFragmentOne();
+    public static OfferFragmentTwo newInstance() {
+        OfferFragmentTwo f = new OfferFragmentTwo();
         return f;
     }
 

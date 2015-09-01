@@ -4,7 +4,7 @@
         <attr name="trimLength" format="integer"/>
     </declare-styleable>-->
 
-    <declare-styleable name="ExpandableTextView">
+   <!-- <declare-styleable name="ExpandableTextView">
         <attr name="maxCollapsedLines" format="integer"/>
         <attr name="animDuration" format="integer"/>
         <attr name="animAlphaStart" format="float"/>
@@ -15,5 +15,5 @@
         <attr name="el_headerLayout" format="reference"/>
         <attr name="el_contentLayout" format="reference" />
         <attr name="el_duration" format="integer" />
-    </declare-styleable>
+    </declare-styleable>-->
 </resources>

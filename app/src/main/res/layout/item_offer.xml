@@ -39,14 +39,15 @@
                 android:id="@+id/txtDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
+                android:singleLine="false"
+                android:maxLines="3"
                 android:ellipsize="end"
                 android:text="Get Rs. 10 Cashback for Mobile Recharge"
                 android:textSize="@dimen/M_TEXT_SIZE"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="#000" />
 
-                <uiCustomControls.ExpandableTextView
+                <!--<uiCustomControls.ExpandableTextView
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/more"
@@ -88,17 +89,17 @@
                             android:layout_gravity="center"
                             android:textSize="@dimen/M_TEXT_SIZE" />
                     </LinearLayout>
-                </uiCustomControls.ExpandableTextView>
+                </uiCustomControls.ExpandableTextView>-->
 
                 <!--<uiCustomControls.ExpandableTextView
                     android:id="@+id/lorem_ipsum"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     />-->
-           <!-- <TextView
+            <TextView
                 android:layout_marginTop="@dimen/SMALL_STD_MARGIN"
                 android:background="@drawable/button"
-                android:id="@+id/txtOfferDetails"
+                android:id="@+id/txtGetOfferDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -107,7 +108,7 @@
                 android:clickable="true"
                 android:layout_gravity="right"
                 android:textSize="@dimen/M_TEXT_SIZE"
-                android:textColor="#fff" />-->
+                android:textColor="#fff" />
             </LinearLayout>
 
         </LinearLayout>

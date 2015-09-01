@@ -2,6 +2,7 @@ package adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,21 +13,19 @@ import android.widget.TextView;
 import java.util.List;
 
 import faidarecharge.com.faidarecharge.R;
-import uiCustomControls.ExpandableTextView;
+import uiActivities.OfferDetailsActivity;
 
 /**
  * Created by Priya on 8/30/2015.
  */
 public class OffersAdapter extends BaseAdapter {
     private Activity mContext;
-    private List<String> mListDetails;
     private List<String> mList;
     private LayoutInflater mLayoutInflater = null;
 
-    public OffersAdapter(Activity context, List<String> list, List<String> listDetails) {
+    public OffersAdapter(Activity context, List<String> list) {
         mContext = context;
         mList = list;
-        mListDetails = listDetails;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
@@ -54,28 +53,25 @@ public class OffersAdapter extends BaseAdapter {
             viewHolder = (CompleteListViewHolder) v.getTag();
         }
         viewHolder.txtDetails.setText(mList.get(position));
-        //viewHolder.txtOfferDetails.setText(mListDetails.get(position));
-        viewHolder.more.setText("Get Rs .100 Cashback for DTH Recharge of Rs.\n " +
-        "500 or above.\n" +
-                "Offer Details:\n" +
-                "1. Get Rs.100 cashback from Mobikwik for any DTH\n" +
-                "Recharge of Rs.500 or above.\n" +
-                "2. Tap to copy Promocode and apply in the checkout.\n" +
-                "Cashback will be credited to your Mobikwik Wallet.\n" +
-                "3. Only Valid for 3 times use by an user.", "PROMO CODE: 123445");
+        viewHolder.txtGetOfferDetails.setText("Get Offer Details");
 
+        viewHolder.txtGetOfferDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, OfferDetailsActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         return v;
 
     }
 }
     class CompleteListViewHolder {
-        public TextView txtDetails/*, txtOfferDetails*/;
-        ExpandableTextView more;
+        public TextView txtDetails, txtGetOfferDetails;
         public ImageView logo;
         public CompleteListViewHolder(View base) {
             txtDetails = (TextView) base.findViewById(R.id.txtDetails);
-            //txtOfferDetails = (TextView) base.findViewById(R.id.txtOfferDetails);
+            txtGetOfferDetails = (TextView) base.findViewById(R.id.txtGetOfferDetails);
             logo = (ImageView) base.findViewById(R.id.logo);
-            more = (ExpandableTextView) base.findViewById(R.id.more);
         }
     }

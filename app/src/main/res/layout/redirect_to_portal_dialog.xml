@@ -17,12 +17,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/HEADER_SIZE"
+            android:padding="@dimen/STD_PADDING"
             android:orientation="horizontal"
             android:background="@drawable/button">
 
             <TextView
-                android:id="@+id/txtMoreFiltersHeading"
+                android:id="@+id/txtHeading"
                 android:layout_width="0dp"
                 android:padding="@dimen/STD_PADDING"
                 android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
 
             <ImageView
                 android:id="@+id/cancel"
-                android:layout_gravity="right"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_navigation_close"/>
@@ -43,45 +44,61 @@
         </LinearLayout>
 
         <LinearLayout
-            android:paddingLeft="@dimen/SMALL_STD_MARGIN"
+            android:background="@color/creameColor"
+            android:padding="@dimen/SMALL_STD_MARGIN"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/STD_MARGIN">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_margin="@dimen/SMALL_STD_MARGIN"
-                android:id="@+id/edEmailID"
+                android:id="@+id/edTitle1"
                 android:text="Good Job Done!"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:textSize="@dimen/VL_TEXT_SIZE"
+                android:textColor="#c00000"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_margin="@dimen/SMALL_STD_MARGIN"
-                android:id="@+id/edPhoneNo"
+                android:id="@+id/edTitle2"
+                android:background="#ffff00"
+                android:layout_gravity="center"
+                android:textColor="@color/navyBlueColor"
                 android:text="Promocode copied."
-                android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:textSize="@dimen/M_TEXT_SIZE"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_margin="@dimen/SMALL_STD_MARGIN"
-                android:id="@+id/edAddress"
+                android:id="@+id/edDetails"
+                android:textSize="@dimen/S_TEXT_SIZE"
                 android:text="@string/promocode"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_margin="@dimen/SMALL_STD_MARGIN"
                 android:id="@+id/edFooter"
+                android:textSize="@dimen/VS_TEXT_SIZE"
                 android:text="@string/promocode_footer_text"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_gravity="right"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_margin="@dimen/SMALL_STD_MARGIN"
                 android:id="@+id/edHelp"
+                android:textColor="#000"
+                android:layout_gravity="right"
+                android:textSize="@dimen/M_TEXT_SIZE"
                 android:text="Still Need Help? Call 9439590547"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
 

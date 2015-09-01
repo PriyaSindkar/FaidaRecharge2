@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:background="@color/primaryColor"
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/HEADER_SIZE"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/imgBack"
+            android:drawablePadding="@dimen/STD_PADDING"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_navigation_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/STD_PADDING"
+            android:textSize="@dimen/L_TEXT_SIZE"
+            android:text="Offer Details"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_marginTop="@dimen/HEADER_SIZE"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/SMALL_STD_MARGIN"
+        android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+        android:orientation="vertical"
+        android:padding="@dimen/STD_PADDING"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/SMALL_STD_MARGIN"
+        android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+        android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgMobikwik"
+            android:src="@drawable/mobikwik_logo"
+            android:layout_width="@dimen/BUTTON_HEIGHT"
+            android:padding="@dimen/STD_PADDING"
+            android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/STD_MARGIN"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_margin="@dimen/SMALL_STD_MARGIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtOfferTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/promoCodeColor"
+                    android:textStyle="bold"
+                    android:text=""/>
+                <TextView
+                    android:layout_marginTop="@dimen/STD_MARGIN"
+                    android:layout_marginBottom="@dimen/STD_MARGIN"
+                    android:id="@+id/txtOfferDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/navyBlueColor"
+                    android:text=""/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_gravity="left"
+                android:textColor="@color/primaryColor"
+                android:padding="@dimen/STD_PADDING"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to copy Promo Code"/>
+
+            <LinearLayout
+                android:background="@drawable/dotted_rectangle"
+                android:layout_margin="@dimen/SMALL_STD_MARGIN"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                    <TextView
+                        android:padding="@dimen/STD_PADDING"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:text="Promo Code:-"/>
+
+                    <TextView
+                        android:id="@+id/txtPromoCode"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:layout_gravity="right"
+                        android:padding="@dimen/STD_PADDING"
+                        android:background="@color/promoCodeColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+                        android:text="DTHMKAUG100"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>

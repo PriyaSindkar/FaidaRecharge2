@@ -17,7 +17,48 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linearCategories"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+            android:layout_height="@dimen/BUTTON_HEIGHT"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btnMobileRecharge"
+                android:background="@drawable/button"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+                android:layout_height="@dimen/BUTTON_HEIGHT"
+                android:text="Any Mobile Recharge Offers"/>
+            <Button
+                android:id="@+id/btnDTHRecharge"
+                android:background="@drawable/button"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+                android:layout_height="@dimen/BUTTON_HEIGHT"
+                android:text="Any DTH Recharge Offers"/>
+            <Button
+                android:id="@+id/btnBillPayment"
+                android:background="@drawable/button"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_height="@dimen/BUTTON_HEIGHT"
+                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
+                android:text="All Bill \n Payment Offers"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+
             android:id="@+id/linearStores"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -55,45 +96,6 @@
                 android:layout_height="@dimen/BUTTON_HEIGHT"/>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearCategories"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/BUTTON_HEIGHT"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/btnMobileRecharge"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:text="Any Mobile Recharge Offers"/>
-            <Button
-                android:id="@+id/btnDTHRecharge"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:text="Any DTH Recharge Offers"/>
-            <Button
-                android:id="@+id/btnBillPayment"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:text="All Bill Payment Offers"/>
-
-        </LinearLayout>
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
@@ -104,6 +106,16 @@
         android:layout_height="wrap_content">
     </android.support.v4.view.ViewPager>
 
+    <TextView
+        android:id="@+id/txtSwipeHelp"
+        android:layout_above="@id/linearBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:textColor="@color/primaryColor"
+        android:text="Swipe Right for more offers!"/>
 
 
 

@@ -8,11 +8,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import faidarecharge.com.faidarecharge.R;
 
@@ -24,6 +27,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private TabsPagerAdapter mAdapter;
     private ImageView imgPaytm, imgMobikwik, imgFreecharge;
     private Button btnMobileRecharge, btnDTHRecharge, btnBillPayment;
+    private LinearLayout linearBottom;
+    private TextView txtSwipeHelp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +53,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         btnDTHRecharge = (Button) rootView.findViewById(R.id.btnDTHRecharge);
         btnBillPayment = (Button) rootView.findViewById(R.id.btnBillPayment);
 
+        linearBottom = (LinearLayout) rootView.findViewById(R.id.linearBottom);
+        txtSwipeHelp = (TextView) rootView.findViewById(R.id.txtSwipeHelp);
+
         imgPaytm.setOnClickListener(this);
         imgMobikwik.setOnClickListener(this);
         imgFreecharge.setOnClickListener(this);
@@ -55,6 +63,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         btnMobileRecharge.setOnClickListener(this);
         btnDTHRecharge.setOnClickListener(this);
         btnBillPayment.setOnClickListener(this);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position == 0) {
+                    linearBottom.setVisibility(View.VISIBLE);
+                    txtSwipeHelp.setVisibility(View.VISIBLE);
+                } else {
+                    linearBottom.setVisibility(View.GONE);
+                    txtSwipeHelp.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // Code goes here
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                // Code goes here
+            }
+        });
     }
 
     @Override
@@ -122,7 +153,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             if (position==0) {
                 return OfferFragmentOne.newInstance();
             }else if(position==1) {
-                return OfferFragmentOne.newInstance();
+                return OfferFragmentTwo.newInstance();
             }
             else{
                 return OfferFragmentOne.newInstance();

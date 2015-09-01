@@ -24,6 +24,11 @@
             android:name="uiActivities.MyDrawerActivity"
             android:label="@string/my_drawer_activity" >
         </activity>
+
+        <activity
+            android:name="uiActivities.OfferDetailsActivity"
+            android:label="@string/offer_details" >
+        </activity>
     </application>
 
 </manifest>
