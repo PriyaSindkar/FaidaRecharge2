@@ -50,6 +50,12 @@ public class OfferFragmentTwo extends Fragment {
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
         headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
+        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
     }
 
 

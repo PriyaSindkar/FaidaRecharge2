@@ -1,6 +1,7 @@
 package uiFragments;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import faidarecharge.com.faidarecharge.R;
+import uiCustomControls.AdvancedSpannableString;
 
 /**
  * Created by Priya on 8/30/2015.
@@ -28,7 +30,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private ImageView imgPaytm, imgMobikwik, imgFreecharge;
     private Button btnMobileRecharge, btnDTHRecharge, btnBillPayment;
     private LinearLayout linearBottom;
-    private TextView txtSwipeHelp;
+    private TextView txtSwipeHelp, txtTodaysOffers;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +57,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         linearBottom = (LinearLayout) rootView.findViewById(R.id.linearBottom);
         txtSwipeHelp = (TextView) rootView.findViewById(R.id.txtSwipeHelp);
+        txtTodaysOffers = (TextView) rootView.findViewById(R.id.txtTodaysOffers);
+
+        AdvancedSpannableString sp = new AdvancedSpannableString("Today's Offer: For Mobile, DTH Recharge and Bill Payments");
+        sp.setColor(Color.parseColor("#ff0000"), "Today's Offer:");
+        txtTodaysOffers.setText(sp);
 
         imgPaytm.setOnClickListener(this);
         imgMobikwik.setOnClickListener(this);
@@ -71,9 +78,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 if(position == 0) {
                     linearBottom.setVisibility(View.VISIBLE);
                     txtSwipeHelp.setVisibility(View.VISIBLE);
+                    txtTodaysOffers.setVisibility(View.VISIBLE);
                 } else {
                     linearBottom.setVisibility(View.GONE);
                     txtSwipeHelp.setVisibility(View.GONE);
+                    txtTodaysOffers.setVisibility(View.GONE);
                 }
             }
 

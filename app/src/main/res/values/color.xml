@@ -9,5 +9,6 @@
     <item name="highLightColor" type="color">#19b050</item>
     <item name="navyBlueColor" type="color">#00206d</item>
     <item name="creameColor" type="color">#fcf0d8</item>
+    <item name="red" type="color">#ff0000</item>
 
 </resources>

@@ -16,6 +16,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textSize="@dimen/S_TEXT_SIZE"
+            android:layout_margin="@dimen/STD_PADDING"
+            android:textColor="@color/red"
+            android:text="Search Faida Offers as per your requirement"/>
+
         <LinearLayout
             android:id="@+id/linearCategories"
             android:orientation="horizontal"
@@ -56,6 +65,15 @@
                 android:text="All Bill \n Payment Offers"/>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textSize="@dimen/S_TEXT_SIZE"
+            android:layout_margin="@dimen/STD_PADDING"
+            android:textColor="@color/red"
+            android:text="Search Offers from Top Recharge Portals"/>
 
         <LinearLayout
 
@@ -98,13 +116,16 @@
         </LinearLayout>
     </LinearLayout>
 
+
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_above="@id/linearBottom"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/STD_MARGIN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v4.view.ViewPager>
+
 
     <TextView
         android:id="@+id/txtSwipeHelp"
@@ -117,6 +138,18 @@
         android:textColor="@color/primaryColor"
         android:text="Swipe Right for more offers!"/>
 
+    <TextView
+        android:id="@+id/txtTodaysOffers"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="@dimen/S_TEXT_SIZE"
+        android:layout_marginBottom="@dimen/STD_MARGIN"
+        android:layout_marginLeft="@dimen/STD_PADDING"
+        android:textColor="@color/navyBlueColor"
+        android:text="Today's Offer: For Mobile, DTH Recharge and Bill Payments"/>
 
 
 </RelativeLayout>
