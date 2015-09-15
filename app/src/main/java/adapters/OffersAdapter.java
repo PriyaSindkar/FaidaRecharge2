@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import faidarecharge.com.faidarecharge.R;
+import model.ComplexPreferences;
+import model.CouponItem;
 import uiActivities.OfferDetailsActivity;
 
 /**
@@ -20,10 +22,10 @@ import uiActivities.OfferDetailsActivity;
  */
 public class OffersAdapter extends BaseAdapter {
     private Activity mContext;
-    private List<String> mList;
+    private List<CouponItem> mList;
     private LayoutInflater mLayoutInflater = null;
 
-    public OffersAdapter(Activity context, List<String> list) {
+    public OffersAdapter(Activity context, List<CouponItem> list) {
         mContext = context;
         mList = list;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,7 +43,7 @@ public class OffersAdapter extends BaseAdapter {
         return position;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View v = convertView;
         CompleteListViewHolder viewHolder;
         if (convertView == null) {
@@ -52,13 +54,30 @@ public class OffersAdapter extends BaseAdapter {
         } else {
             viewHolder = (CompleteListViewHolder) v.getTag();
         }
-        viewHolder.txtDetails.setText(mList.get(position));
+        viewHolder.txtDetails.setText(mList.get(position).couponTitle);
         viewHolder.txtGetOfferDetails.setText("Get Offer Details");
+
+        if(mList.get(position).websiteLink.contains("freecharge")) {
+            viewHolder.logo.setImageResource(R.drawable.freecharge_logo);
+        } else if (mList.get(position).websiteLink.contains("mobikwik")) {
+            viewHolder.logo.setImageResource(R.drawable.mobikwik_logo);
+        } else if (mList.get(position).websiteLink.contains("flipkart")) {
+            viewHolder.logo.setImageResource(R.drawable.flipkart_logo);
+        } else {
+            viewHolder.logo.setImageResource(R.drawable.paytm_logo);
+        }
 
         viewHolder.txtGetOfferDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, OfferDetailsActivity.class);
+                /*intent.putExtra("description", mList.get(position).couponDescription);
+                intent.putExtra("code", mList.get(position).couponCode);
+                intent.putExtra("website", mList.get(position).websiteLink);*/
+
+                ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(mContext, "coupon-details", 0);
+                complexPreferences.putObject("coupon-details", mList.get(position));
+                complexPreferences.commit();
                 mContext.startActivity(intent);
             }
         });

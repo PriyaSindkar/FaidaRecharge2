@@ -50,7 +50,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgMobikwik"
+            android:id="@+id/imgLogo"
             android:src="@drawable/mobikwik_logo"
             android:layout_width="@dimen/BUTTON_HEIGHT"
             android:padding="@dimen/STD_PADDING"
