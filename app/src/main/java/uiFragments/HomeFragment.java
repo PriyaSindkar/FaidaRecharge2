@@ -1,5 +1,7 @@
 package uiFragments;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -14,23 +16,47 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
+import model.CategoryItem;
+import model.CategoryModel;
+import model.CouponItem;
+import model.StoreModel;
 import uiCustomControls.AdvancedSpannableString;
 
 /**
  * Created by Priya on 8/30/2015.
  */
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment{
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
-    private ImageView imgPaytm, imgMobikwik, imgFreecharge;
-    private Button btnMobileRecharge, btnDTHRecharge, btnBillPayment;
-    private LinearLayout linearBottom;
+    private LinearLayout linearBottom, linearCategories, linearStores;
     private TextView txtSwipeHelp, txtTodaysOffers;
+    private String CATEGORIES_URL = "http://faidarecharge.com/webservice/getCategory.php";
+    private String STORES_URL = "http://faidarecharge.com/webservice/getStore.php";
+    private ArrayList<CategoryModel> categoryItems;
+    private ArrayList<StoreModel> storeItems;
+    private HorizontalScrollView hScrollView, hScrollView2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,14 +73,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mAdapter = new TabsPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(mAdapter);
 
-        imgPaytm = (ImageView) rootView.findViewById(R.id.imgPaytm);
-        imgMobikwik = (ImageView) rootView.findViewById(R.id.imgMobikwik);
-        imgFreecharge = (ImageView) rootView.findViewById(R.id.imgFreecharge);
-
-        btnMobileRecharge = (Button) rootView.findViewById(R.id.btnMobileRecharge);
-        btnDTHRecharge = (Button) rootView.findViewById(R.id.btnDTHRecharge);
-        btnBillPayment = (Button) rootView.findViewById(R.id.btnBillPayment);
-
         linearBottom = (LinearLayout) rootView.findViewById(R.id.linearBottom);
         txtSwipeHelp = (TextView) rootView.findViewById(R.id.txtSwipeHelp);
         txtTodaysOffers = (TextView) rootView.findViewById(R.id.txtTodaysOffers);
@@ -63,13 +81,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         sp.setColor(Color.parseColor("#ff0000"), "Today's Offer:");
         txtTodaysOffers.setText(sp);
 
-        imgPaytm.setOnClickListener(this);
-        imgMobikwik.setOnClickListener(this);
-        imgFreecharge.setOnClickListener(this);
+        linearCategories = (LinearLayout) rootView.findViewById(R.id.linearCategories);
+        hScrollView = (HorizontalScrollView) rootView.findViewById(R.id.hScrollView);
+        hScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
-        btnMobileRecharge.setOnClickListener(this);
-        btnDTHRecharge.setOnClickListener(this);
-        btnBillPayment.setOnClickListener(this);
+        linearStores = (LinearLayout) rootView.findViewById(R.id.linearStores);
+        hScrollView2 = (HorizontalScrollView) rootView.findViewById(R.id.hScrollView2);
+        hScrollView2.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+        getCategories();
+        getStores();
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -79,6 +100,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     linearBottom.setVisibility(View.VISIBLE);
                     txtSwipeHelp.setVisibility(View.VISIBLE);
                     txtTodaysOffers.setVisibility(View.VISIBLE);
+
                 } else {
                     linearBottom.setVisibility(View.GONE);
                     txtSwipeHelp.setVisibility(View.GONE);
@@ -97,52 +119,160 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         });
     }
 
-    @Override
-    public void onClick(View view) {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        switch (view.getId()) {
-            case R.id.imgPaytm:
-                String url = "http://www.paytm.com";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-                break;
 
-            case R.id.imgFreecharge:
-                url = "http://www.freecharge.in";
-                i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-                break;
+    private void getCategories() {
 
-            case R.id.imgMobikwik:
-                url = "http://www.mobikwik.com";
-                i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-                break;
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        circleDialog.setCancelable(true);
+        circleDialog.show();
 
-            case R.id.btnMobileRecharge:
-                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
+        new CallWebService(CATEGORIES_URL, CallWebService.TYPE_JSONOBJECT) {
 
-            case R.id.btnDTHRecharge:
-                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
+            @Override
+            public void response(String response) {
 
-            case R.id.btnBillPayment:
-                fragmentTransaction.replace(R.id.frame, new CategoryFragment(), "CATEGORY");
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
+                circleDialog.dismiss();
 
+                Log.e("RESP categories_Details", response);
+
+                try {
+                    JSONObject msg = new JSONObject(response);
+                    JSONArray data = msg.getJSONArray("data");
+
+                    if (msg.getString("status").equals("1")) {
+
+                        Type listType = new TypeToken<List<CategoryModel>>() {
+                        }.getType();
+
+                        categoryItems = new GsonBuilder().create().fromJson(data.toString(), listType);
+                        //filterHomePageCouponList(couponList);
+
+                        setCategories();
+
+                    }
+                }catch(JSONException jsonEx) {
+                    Log.e("JSON EXCEPTION: ", jsonEx.toString());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                Log.e("VOLLEY ERROR", error.toString());
+                circleDialog.dismiss();
+            }
+        }.start();
+    }
+
+    private void getStores() {
+
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        circleDialog.setCancelable(true);
+        circleDialog.show();
+
+        new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
+
+            @Override
+            public void response(String response) {
+
+                circleDialog.dismiss();
+
+                Log.e("RESP stores_Details", response);
+
+                try {
+                    JSONObject msg = new JSONObject(response);
+                    JSONArray data = msg.getJSONArray("data");
+
+                    if (msg.getString("status").equals("1")) {
+
+                        Type listType = new TypeToken<List<StoreModel>>() {
+                        }.getType();
+
+                        storeItems = new GsonBuilder().create().fromJson(data.toString(), listType);
+                        //filterHomePageCouponList(couponList);
+
+                        setStores();
+
+                    }
+                }catch(JSONException jsonEx) {
+                    Log.e("JSON EXCEPTION: ", jsonEx.toString());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                Log.e("VOLLEY ERROR", error.toString());
+                circleDialog.dismiss();
+            }
+        }.start();
+    }
+
+    public void setCategories() {
+        linearCategories.removeAllViews();
+        linearCategories.setWeightSum(categoryItems.size());
+        for(int i=0; i<categoryItems.size(); i++) {
+            final int pos = i;
+            LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.category_item,null);
+            TextView txtCategoryTitle = (TextView) v.findViewById(R.id.txtCategoryTitle);
+            txtCategoryTitle.setText(categoryItems.get(i).categoryTitle);
+
+            linearCategories.addView(v);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putCharSequence("category_name", categoryItems.get(pos).categoryTitle);
+
+                    CategoryFragment categoryFragment = new CategoryFragment();
+                    categoryFragment.setArguments(bundle);
+
+                    fragmentTransaction.replace(R.id.frame, categoryFragment, "CATEGORY");
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
         }
+    }
+
+    public void setStores() {
+        linearStores.removeAllViews();
+        linearStores.setWeightSum(storeItems.size());
+        for(int i=0; i<storeItems.size(); i++) {
+            final int pos = i;
+            LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.store_item,null);
+            ImageView imgLogo = (ImageView) v.findViewById(R.id.imgLogo);
+            if(storeItems.get(pos).storeName.contains("Paytm")) {
+                imgLogo.setImageResource(R.drawable.paytm_logo);
+            } else if(storeItems.get(pos).storeName.contains("Flipkart")) {
+                imgLogo.setImageResource(R.drawable.flipkart_logo );
+            } else if(storeItems.get(pos).storeName.contains("Freecharge")) {
+                imgLogo.setImageResource(R.drawable.freecharge_logo);
+            } else if(storeItems.get(pos).storeName.contains("Mobikwik")) {
+                imgLogo.setImageResource(R.drawable.mobikwik_logo);
+            }
+
+            linearStores.addView(v);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String url = storeItems.get(pos).webURL;
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
+            });
+        }
+
+
+
     }
 
     public class TabsPagerAdapter extends FragmentPagerAdapter {

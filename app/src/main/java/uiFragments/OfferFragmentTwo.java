@@ -25,6 +25,7 @@ import adapters.OffersAdapter;
 import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
 import model.CouponItem;
+import uiActivities.MyDrawerActivity;
 
 /**
  * Created by Priya on 8/30/2015.
@@ -46,7 +47,7 @@ public class OfferFragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer_one, container, false);
-
+        ((MyDrawerActivity) getActivity()).setTitle("Other Offers");
         init(rootView);
 
         return rootView;

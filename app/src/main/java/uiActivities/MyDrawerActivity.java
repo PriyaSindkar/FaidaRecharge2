@@ -71,6 +71,10 @@ public class MyDrawerActivity extends ActionBarActivity implements NavigationVie
         fragmentTransaction.commit();
     }
 
+    public void setToolbarTitle(String title) {
+            toolbar.setTitle(title);
+    }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         mSearchAction = menu.findItem(R.id.action_search);

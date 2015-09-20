@@ -25,46 +25,26 @@
             android:textColor="@color/red"
             android:text="Search Faida Offers as per your requirement"/>
 
-        <LinearLayout
-            android:id="@+id/linearCategories"
-            android:orientation="horizontal"
+        <HorizontalScrollView
+            android:id="@+id/hScrollView"
             android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
-            android:layout_height="@dimen/BUTTON_HEIGHT"
-            android:weightSum="3">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
 
-            <Button
-                android:id="@+id/btnMobileRecharge"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:text="Any Mobile Recharge Offers"/>
-            <Button
-                android:id="@+id/btnDTHRecharge"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:text="Any DTH Recharge Offers"/>
-            <Button
-                android:id="@+id/btnBillPayment"
-                android:background="@drawable/button"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_height="@dimen/BUTTON_HEIGHT"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:text="All Bill \n Payment Offers"/>
+            <LinearLayout
+                android:id="@+id/linearCategories"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+                android:layout_height="@dimen/BUTTON_HEIGHT">
 
-        </LinearLayout>
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,45 +55,26 @@
             android:textColor="@color/red"
             android:text="Search Offers from Top Recharge Portals"/>
 
-        <LinearLayout
 
-            android:id="@+id/linearStores"
-            android:orientation="horizontal"
+
+        <HorizontalScrollView
+            android:id="@+id/hScrollView2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/BUTTON_HEIGHT"
-            android:weightSum="3">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
 
-            <ImageView
-                android:id="@+id/imgPaytm"
-                android:background="@drawable/button_outline"
-                android:src="@drawable/paytm_logo"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:padding="@dimen/STD_PADDING"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"/>
+            <LinearLayout
+                android:id="@+id/linearStores"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+                android:layout_height="@dimen/BUTTON_HEIGHT">
 
-            <ImageView
-                android:id="@+id/imgMobikwik"
-                android:background="@drawable/button_outline"
-                android:src="@drawable/mobikwik_logo"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:padding="@dimen/STD_PADDING"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"/>
 
-            <ImageView
-                android:id="@+id/imgFreecharge"
-                android:background="@drawable/button_outline"
-                android:src="@drawable/freecharge_logo"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:padding="@dimen/STD_PADDING"
-                android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT"/>
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </HorizontalScrollView>
     </LinearLayout>
 
 
