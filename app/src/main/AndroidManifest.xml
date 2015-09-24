@@ -25,7 +25,8 @@
 
         <activity
             android:name="uiActivities.MyDrawerActivity"
-            android:label="@string/my_drawer_activity" >
+            android:label="@string/my_drawer_activity"
+            android:windowSoftInputMode="adjustNothing">
         </activity>
 
         <activity

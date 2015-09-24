@@ -34,18 +34,22 @@ public class OffersAdapter extends BaseAdapter {
     public int getCount() {
         return mList.size();
     }
+
     @Override
     public Object getItem(int pos) {
         return mList.get(pos);
     }
+
     @Override
     public long getItemId(int position) {
         return position;
     }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View v = convertView;
         CompleteListViewHolder viewHolder;
+
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = li.inflate(R.layout.item_offer, null);

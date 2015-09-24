@@ -47,7 +47,7 @@ public class OfferFragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer_one, container, false);
-        ((MyDrawerActivity) getActivity()).setTitle("Other Offers");
+       // ((MyDrawerActivity) getActivity()).setToolbarTitle("Other Offers");
         init(rootView);
 
         return rootView;

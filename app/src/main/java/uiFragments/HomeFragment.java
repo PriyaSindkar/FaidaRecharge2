@@ -42,6 +42,7 @@ import model.CategoryItem;
 import model.CategoryModel;
 import model.CouponItem;
 import model.StoreModel;
+import uiActivities.MyDrawerActivity;
 import uiCustomControls.AdvancedSpannableString;
 
 /**
@@ -97,11 +98,13 @@ public class HomeFragment extends Fragment{
             @Override
             public void onPageSelected(int position) {
                 if(position == 0) {
+                    ((MyDrawerActivity) getActivity()).setToolbarTitle("Home");
                     linearBottom.setVisibility(View.VISIBLE);
                     txtSwipeHelp.setVisibility(View.VISIBLE);
                     txtTodaysOffers.setVisibility(View.VISIBLE);
 
                 } else {
+                    ((MyDrawerActivity) getActivity()).setToolbarTitle("Other Offers");
                     linearBottom.setVisibility(View.GONE);
                     txtSwipeHelp.setVisibility(View.GONE);
                     txtTodaysOffers.setVisibility(View.GONE);

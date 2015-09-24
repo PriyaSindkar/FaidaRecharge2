@@ -1,13 +1,28 @@
 package uiFragments;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.GsonBuilder;
@@ -20,11 +35,13 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import adapters.OffersAdapter;
 import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
 import model.CouponItem;
+import uiActivities.MyDrawerActivity;
 
 /**
  * Created by Priya on 8/30/2015.
@@ -32,10 +49,10 @@ import model.CouponItem;
 public class OfferFragmentOne extends Fragment {
     OffersAdapter adapter;
     ListView listOffers;
-    List<String> headersList;
     private static String URL = "http://faidarecharge.com/webservice/getCoupons.php";
     private ArrayList<CouponItem> couponList;
     private ArrayList<CouponItem> homePageCouponList;
+    private TextView txtEmptyView;
 
     public static OfferFragmentOne newInstance() {
         OfferFragmentOne f = new OfferFragmentOne();
@@ -47,7 +64,8 @@ public class OfferFragmentOne extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer_one, container, false);
-
+        ((MyDrawerActivity) getActivity()).setToolbarTitle("Home");
+        setHasOptionsMenu(true);
         init(rootView);
 
         return rootView;
@@ -55,19 +73,9 @@ public class OfferFragmentOne extends Fragment {
 
     private void init(View rootView) {
         listOffers = (ListView) rootView.findViewById(R.id.listOffers);
-        //initOfferDetails();
+        txtEmptyView = (TextView) rootView.findViewById(R.id.txtEmptyView);
+        listOffers.setEmptyView(txtEmptyView);
         getCoupons();
-
-
-
-    }
-
-    private void initOfferDetails() {
-        headersList = new ArrayList<>();
-        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
-        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
-        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
-        headersList.add("Get Rs.100 Cashback for DTH Recharge of Rs.500 or above.");
     }
 
 
@@ -122,6 +130,54 @@ public class OfferFragmentOne extends Fragment {
         }
         adapter = new OffersAdapter(getActivity(), homePageCouponList);
         listOffers.setAdapter(adapter);
+    }
+
+    // Filter Class
+    public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        homePageCouponList.clear();
+        if (charText.length() == 0) {
+            filterHomePageCouponList(couponList);
+
+        } else {
+            for (CouponItem obj : couponList) {
+
+                if (charText.length() != 0 && obj.couponTitle.toLowerCase(Locale.getDefault()).contains(charText)) {
+                    homePageCouponList.add(obj);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = new SearchView(((MyDrawerActivity) getActivity()).getSupportActionBar().getThemedContext());
+        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItemCompat.setActionView(item, sv);
+
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.e("TAG_SUBMIT", query + " submitted");
+                filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.e("TAG_change", newText);
+                if(newText.length() == 0) {
+                    filterHomePageCouponList(couponList);
+                } else {
+                    filter(newText);
+                }
+                return false;
+            }
+        });
     }
 
 
