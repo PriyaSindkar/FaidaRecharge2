@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="faidarecharge.com.faidarecharge" >
+
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:name="apiHelpers.MyApplication"
         android:theme="@style/MyMaterialTheme" >
-
-
 
         <activity
             android:name="uiActivities.SplashActivity"
@@ -30,6 +32,7 @@
             android:name="uiActivities.OfferDetailsActivity"
             android:label="@string/offer_details" >
         </activity>
+
     </application>
 
 </manifest>
