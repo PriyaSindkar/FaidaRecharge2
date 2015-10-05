@@ -55,7 +55,6 @@ public class CategoryFragment extends Fragment {
     private ArrayList<CouponItem> searchList = new ArrayList<>();
     private TextView txtEmptyView;
 
-    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
     }
 
