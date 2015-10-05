@@ -58,7 +58,7 @@
 
 
         <receiver
-            android:name=".GCM.GcmBroadcastReceiver"
+            android:name="uiActivities.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -67,7 +67,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".GCM.GcmMessageHandler" />
+        <service android:name="uiActivities.GcmMessageHandler" />
 
 
         <activity

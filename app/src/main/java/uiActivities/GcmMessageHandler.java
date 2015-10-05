@@ -1,4 +1,4 @@
-package GCM;
+package uiActivities;
 
 
 import android.app.IntentService;
@@ -15,7 +15,6 @@ import android.util.Log;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import faidarecharge.com.faidarecharge.R;
-import uiActivities.MyDrawerActivity;
 
 
 public class GcmMessageHandler extends IntentService {
