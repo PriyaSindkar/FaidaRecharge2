@@ -27,8 +27,8 @@
                 android:layout_gravity="left|top"
                 android:layout_width="@dimen/LOGO_SIZE"
                 android:layout_height="@dimen/LOGO_SIZE"
-                android:layout_marginRight="@dimen/STD_PADDING"
-                android:src="@drawable/paytm_logo"/>
+                android:src="@drawable/faidarecharge"
+                android:layout_marginRight="@dimen/STD_PADDING"/>
 
             <LinearLayout
                 android:orientation="vertical"

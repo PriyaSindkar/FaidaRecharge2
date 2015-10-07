@@ -41,6 +41,7 @@ import adapters.OffersAdapter;
 import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
 import model.CouponItem;
+import model.StoreModel;
 import uiActivities.MyDrawerActivity;
 
 /**
@@ -49,10 +50,12 @@ import uiActivities.MyDrawerActivity;
 public class OfferFragmentOne extends Fragment {
     OffersAdapter adapter;
     ListView listOffers;
-    private static String URL = "http://faidarecharge.com/webservice/getCoupons.php";
+    private static String URL = "http://faidarecharge.com/admin/getCoupons.php";
+    private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
     private ArrayList<CouponItem> couponList;
     private ArrayList<CouponItem> homePageCouponList;
     private TextView txtEmptyView;
+    private ArrayList<StoreModel> storeItems;
 
     public static OfferFragmentOne newInstance() {
         OfferFragmentOne f = new OfferFragmentOne();
@@ -75,7 +78,8 @@ public class OfferFragmentOne extends Fragment {
         listOffers = (ListView) rootView.findViewById(R.id.listOffers);
         txtEmptyView = (TextView) rootView.findViewById(R.id.txtEmptyView);
         listOffers.setEmptyView(txtEmptyView);
-        getCoupons();
+
+        getStores();
     }
 
 
@@ -121,14 +125,18 @@ public class OfferFragmentOne extends Fragment {
     }
 
     public void filterHomePageCouponList(ArrayList<CouponItem> couponList) {
+        int homePageItemsCount = 0;
         homePageCouponList = new ArrayList<>();
 
         for(int i=0; i<couponList.size(); i++) {
             if(couponList.get(i).ishomepage.equals("1")) {
-                homePageCouponList.add(couponList.get(i));
+                if(homePageItemsCount < 4) {
+                    homePageCouponList.add(couponList.get(i));
+                }
+                homePageItemsCount++;
             }
         }
-        adapter = new OffersAdapter(getActivity(), homePageCouponList);
+        adapter = new OffersAdapter(getActivity(), homePageCouponList, storeItems);
         listOffers.setAdapter(adapter);
     }
 
@@ -170,7 +178,7 @@ public class OfferFragmentOne extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 Log.e("TAG_change", newText);
-                if(newText.length() == 0) {
+                if (newText.length() == 0) {
                     filterHomePageCouponList(couponList);
                 } else {
                     filter(newText);
@@ -179,7 +187,48 @@ public class OfferFragmentOne extends Fragment {
             }
         });
     }
+    private void getStores() {
 
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        circleDialog.setCancelable(true);
+        circleDialog.show();
+
+        new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
+
+            @Override
+            public void response(String response) {
+
+                circleDialog.dismiss();
+
+                Log.e("RESP stores_Details", response);
+
+                try {
+                    JSONObject msg = new JSONObject(response);
+                    JSONArray data = msg.getJSONArray("data");
+
+                    if (msg.getString("status").equals("1")) {
+
+                        Type listType = new TypeToken<List<StoreModel>>() {
+                        }.getType();
+
+                        storeItems = new GsonBuilder().create().fromJson(data.toString(), listType);
+
+                        getCoupons();
+
+                        Log.e("storeItems", storeItems.toString());
+                    }
+                }catch(JSONException jsonEx) {
+                    Log.e("JSON EXCEPTION: ", jsonEx.toString());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                Log.e("VOLLEY ERROR", error.toString());
+                circleDialog.dismiss();
+            }
+        }.start();
+    }
 
 }
 

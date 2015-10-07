@@ -10,11 +10,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import faidarecharge.com.faidarecharge.R;
 import model.ComplexPreferences;
 import model.CouponItem;
+import model.StoreModel;
 import uiActivities.OfferDetailsActivity;
 
 /**
@@ -23,11 +27,14 @@ import uiActivities.OfferDetailsActivity;
 public class OffersAdapter extends BaseAdapter {
     private Activity mContext;
     private List<CouponItem> mList;
+    private ArrayList<StoreModel> storeItems;
+    private static String IMAGE_URL = "http://faidarecharge.com/admin/upload_images/";
     private LayoutInflater mLayoutInflater = null;
 
-    public OffersAdapter(Activity context, List<CouponItem> list) {
+    public OffersAdapter(Activity context, List<CouponItem> list, ArrayList<StoreModel> _storeItems) {
         mContext = context;
         mList = list;
+        this.storeItems = _storeItems;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
@@ -61,22 +68,25 @@ public class OffersAdapter extends BaseAdapter {
         viewHolder.txtDetails.setText(mList.get(position).couponTitle);
         viewHolder.txtGetOfferDetails.setText("Get Offer Details");
 
-        if(mList.get(position).websiteLink.contains("freecharge")) {
-            viewHolder.logo.setImageResource(R.drawable.freecharge_logo);
-        } else if (mList.get(position).websiteLink.contains("mobikwik")) {
-            viewHolder.logo.setImageResource(R.drawable.mobikwik_logo);
-        } else if (mList.get(position).websiteLink.contains("flipkart")) {
-            viewHolder.logo.setImageResource(R.drawable.flipkart_logo);
-        } else {
-            viewHolder.logo.setImageResource(R.drawable.paytm_logo);
+        String url = "";
+
+        for(int i=0; i<storeItems.size(); i++) {
+            if(storeItems.get(i).storeName.equals(mList.get(position).couponStore)) {
+                url = IMAGE_URL + storeItems.get(i).imageURL;
+                break;
+            }
         }
 
+        Glide.with(mContext)
+                .load(url).placeholder(R.drawable.faidarecharge).into(viewHolder.logo);
+
+        final String finalUrl = url;
         viewHolder.txtGetOfferDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, OfferDetailsActivity.class);
-                /*intent.putExtra("description", mList.get(position).couponDescription);
-                intent.putExtra("code", mList.get(position).couponCode);
+                intent.putExtra("image_url", finalUrl);
+                /*intent.putExtra("code", mList.get(position).couponCode);
                 intent.putExtra("website", mList.get(position).websiteLink);*/
 
                 ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(mContext, "coupon-details", 0);

@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class CategoryModel {
 
-    @SerializedName("catg_name")
+    @SerializedName("cat_name")
     public String categoryTitle;
 
     @SerializedName("img_url ")

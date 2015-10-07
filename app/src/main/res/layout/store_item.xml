@@ -9,9 +9,9 @@
         android:id="@+id/imgLogo"
         android:layout_width="@dimen/BUTTON_WIDTH"
         android:padding="@dimen/STD_MARGIN"
+        android:src="@drawable/faidarecharge"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:gravity="center"
-        android:src="@drawable/paytm_logo"/>
+        android:gravity="center"/>
 
 </RelativeLayout>

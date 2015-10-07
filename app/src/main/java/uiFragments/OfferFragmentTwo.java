@@ -3,6 +3,7 @@ package uiFragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,15 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import adapters.OffersAdapter;
 import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
+import model.ComplexPreferences;
 import model.CouponItem;
+import model.StoreModel;
 import uiActivities.MyDrawerActivity;
 
 /**
@@ -33,9 +37,11 @@ import uiActivities.MyDrawerActivity;
 public class OfferFragmentTwo extends Fragment {
     OffersAdapter adapter;
     ListView listOffers;
-    private static String URL = "http://faidarecharge.com/webservice/getCoupons.php";
+    private static String URL = "http://faidarecharge.com/admin/getCoupons.php";
+    private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
     private ArrayList<CouponItem> couponList;
     private ArrayList<CouponItem> pageTwoCouponList;
+    private ArrayList<StoreModel> storeItems;
 
     public static OfferFragmentTwo newInstance() {
         OfferFragmentTwo f = new OfferFragmentTwo();
@@ -55,7 +61,8 @@ public class OfferFragmentTwo extends Fragment {
 
     private void init(View rootView) {
         listOffers = (ListView) rootView.findViewById(R.id.listOffers);
-        getCoupons();
+
+        getStores();
     }
 
     private void getCoupons() {
@@ -100,15 +107,66 @@ public class OfferFragmentTwo extends Fragment {
     }
 
     public void filterHomePageCouponList(ArrayList<CouponItem> couponList) {
+        int homePageCount = 0;
         pageTwoCouponList = new ArrayList<>();
 
         for(int i=0; i<couponList.size(); i++) {
             if(couponList.get(i).ishomepage.equals("0")) {
                 pageTwoCouponList.add(couponList.get(i));
+            } else {
+                if(homePageCount >= 4) {
+                    pageTwoCouponList.add(couponList.get(i));
+                }
+                homePageCount++;
             }
         }
-        adapter = new OffersAdapter(getActivity(), pageTwoCouponList);
+
+        adapter = new OffersAdapter(getActivity(), pageTwoCouponList, storeItems);
         listOffers.setAdapter(adapter);
+    }
+
+    private void getStores() {
+
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        circleDialog.setCancelable(true);
+        circleDialog.show();
+
+        new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
+
+            @Override
+            public void response(String response) {
+
+                circleDialog.dismiss();
+
+                Log.e("RESP stores_Details", response);
+
+                try {
+                    JSONObject msg = new JSONObject(response);
+                    JSONArray data = msg.getJSONArray("data");
+
+                    if (msg.getString("status").equals("1")) {
+
+                        Type listType = new TypeToken<List<StoreModel>>() {
+                        }.getType();
+
+                        storeItems = new GsonBuilder().create().fromJson(data.toString(), listType);
+
+
+                        getCoupons();
+
+                        Log.e("storeItems", storeItems.toString());
+                    }
+                }catch(JSONException jsonEx) {
+                    Log.e("JSON EXCEPTION: ", jsonEx.toString());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                Log.e("VOLLEY ERROR", error.toString());
+                circleDialog.dismiss();
+            }
+        }.start();
     }
 
 

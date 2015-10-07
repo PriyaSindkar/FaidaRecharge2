@@ -51,9 +51,9 @@
 
         <ImageView
             android:id="@+id/imgLogo"
-            android:src="@drawable/mobikwik_logo"
             android:layout_width="@dimen/BUTTON_HEIGHT"
             android:padding="@dimen/STD_PADDING"
+            android:src="@drawable/faidarecharge"
             android:layout_marginRight="@dimen/SMALL_STD_MARGIN"
             android:layout_height="@dimen/BUTTON_HEIGHT"/>
 

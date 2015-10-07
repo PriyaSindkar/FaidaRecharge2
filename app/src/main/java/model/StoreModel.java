@@ -13,6 +13,15 @@ public class StoreModel {
     @SerializedName("web_url")
     public String webURL;
 
-    @SerializedName("img_url ")
+    @SerializedName("img_url")
     public String imageURL;
+
+    @Override
+    public String toString() {
+        return "StoreModel{" +
+                "storeName='" + storeName + '\'' +
+                ", webURL='" + webURL + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                '}';
+    }
 }

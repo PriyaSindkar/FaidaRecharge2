@@ -1,5 +1,6 @@
 package uiActivities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,6 +8,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.text.ClipboardManager;
+import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,9 +18,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
 import model.ComplexPreferences;
 import model.CouponItem;
+import model.StoreModel;
 import uiCustomControls.AdvancedSpannableString;
 import uiCustomControls.RedirectToPortalDialog;
 
@@ -27,6 +45,9 @@ public class OfferDetailsActivity extends ActionBarActivity {
     private TextView txtOfferTitle, txtOfferDetails, imgBack, txtPromoCode;
     private String description, code;
     private ImageView imgLogo;
+    private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
+    private static String IMAGE_URL = "http://faidarecharge.com/admin/upload_images/";
+    private ArrayList<StoreModel> storeItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,48 +66,23 @@ public class OfferDetailsActivity extends ActionBarActivity {
         txtPromoCode = (TextView) findViewById(R.id.txtPromoCode);
         imgLogo = (ImageView) findViewById(R.id.imgLogo);
 
-
-        ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(this, "coupon-details", 0);
+        ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(OfferDetailsActivity.this, "coupon-details", 0);
         CouponItem couponItem = complexPreferences.getObject("coupon-details", CouponItem.class);
 
         if(couponItem != null) {
-            txtOfferDetails.setText(couponItem.couponDescription);
+            txtOfferDetails.setText(Html.fromHtml(couponItem.couponDescription));
             txtOfferTitle.setText(couponItem.couponTitle);
             txtPromoCode.setText(couponItem.couponCode);
 
-            String website = couponItem.websiteLink;
-
-            if(website.contains("freecharge")) {
-                imgLogo.setImageResource(R.drawable.freecharge_logo);
-            } else if (website.contains("mobikwik")) {
-                imgLogo.setImageResource(R.drawable.mobikwik_logo);
-            } else if (website.contains("flipkart")) {
-                imgLogo.setImageResource(R.drawable.flipkart_logo);
-            } else {
-                imgLogo.setImageResource(R.drawable.paytm_logo);
+            String url = getIntent().getStringExtra("image_url");
+            if(url!=null) {
+                Glide.with(this)
+                        .load(url).placeholder(R.drawable.faidarecharge).into(imgLogo);
             }
         }
 
         complexPreferences.clearObject();
         complexPreferences.commit();
-
-
-
-
-        /*AdvancedSpannableString sp = new AdvancedSpannableString("Get Rs.100 Cashback for DTH Recharge of Rs.\n" +
-                "500 or above.");
-        sp.setColor(Color.parseColor("#19b050"), "Rs.100 Cashback");
-        txtOfferTitle.setText(sp);
-
-        AdvancedSpannableString sp1 = new AdvancedSpannableString("Offer Details:\n" +
-                "1. Get Rs.100 cashback from Mobikwik for any DTH\n" +
-                "Recharge of Rs.500 or above.\n" +
-                "2. Tap to copy Promocode and apply in the checkout.\n" +
-                "Cashback will be credited to your Mobikwik Wallet.\n" +
-                "3. Only Valid for 3 times use by an user.");
-
-        sp1.setBold("Offer Details:");
-        txtOfferDetails.setText(sp1);*/
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +94,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
         txtPromoCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ClipboardManager cm = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 cm.setText(txtPromoCode.getText());
                 Toast.makeText(OfferDetailsActivity.this, "Promo Code Copied", Toast.LENGTH_SHORT).show();
 

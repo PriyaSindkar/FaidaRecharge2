@@ -40,6 +40,7 @@ import apiHelpers.CallWebService;
 import faidarecharge.com.faidarecharge.R;
 import model.CategoryItem;
 import model.CouponItem;
+import model.StoreModel;
 import uiActivities.MyDrawerActivity;
 
 /**
@@ -49,9 +50,11 @@ public class CategoryFragment extends Fragment {
     private ListView listOffers;
     private OffersAdapter adapter;
     String categoryNameForFilter;
-    private static String URL = "http://faidarecharge.com/webservice/getCoupons.php";
+    private static String URL = "http://faidarecharge.com/admin/getCoupons.php";
+    private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
     private ArrayList<CouponItem> couponList;
     private ArrayList<CouponItem> filteredCouponList;
+    private ArrayList<StoreModel> storeItems;
     private ArrayList<CouponItem> searchList = new ArrayList<>();
     private TextView txtEmptyView;
 
@@ -73,7 +76,7 @@ public class CategoryFragment extends Fragment {
         categoryNameForFilter = (String) bundle.get("category_name");
         ((MyDrawerActivity) getActivity()).setTitle(categoryNameForFilter +" Offers");
 
-        getCoupons();
+        getStores();
         init(rootView);
 
         return rootView;
@@ -135,7 +138,7 @@ public class CategoryFragment extends Fragment {
                 filteredCouponList.add(couponList.get(i));
             }
         }
-        adapter = new OffersAdapter(getActivity(), filteredCouponList);
+        adapter = new OffersAdapter(getActivity(), filteredCouponList, storeItems);
         listOffers.setAdapter(adapter);
     }
 
@@ -155,7 +158,7 @@ public class CategoryFragment extends Fragment {
                     searchList.add(obj);
                 }
             }
-            adapter = new OffersAdapter(getActivity(), searchList);
+            adapter = new OffersAdapter(getActivity(), searchList, storeItems);
             listOffers.setAdapter(adapter);
         }
 
@@ -186,6 +189,49 @@ public class CategoryFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    private void getStores() {
+
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        circleDialog.setCancelable(true);
+        circleDialog.show();
+
+        new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
+
+            @Override
+            public void response(String response) {
+
+                circleDialog.dismiss();
+
+                Log.e("RESP stores_Details", response);
+
+                try {
+                    JSONObject msg = new JSONObject(response);
+                    JSONArray data = msg.getJSONArray("data");
+
+                    if (msg.getString("status").equals("1")) {
+
+                        Type listType = new TypeToken<List<StoreModel>>() {
+                        }.getType();
+
+                        storeItems = new GsonBuilder().create().fromJson(data.toString(), listType);
+
+                        getCoupons();
+
+                        Log.e("storeItems", storeItems.toString());
+                    }
+                }catch(JSONException jsonEx) {
+                    Log.e("JSON EXCEPTION: ", jsonEx.toString());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                Log.e("VOLLEY ERROR", error.toString());
+                circleDialog.dismiss();
+            }
+        }.start();
     }
 
 }

@@ -24,6 +24,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
@@ -53,8 +54,9 @@ public class HomeFragment extends Fragment{
     private TabsPagerAdapter mAdapter;
     private LinearLayout linearBottom, linearCategories, linearStores;
     private TextView txtSwipeHelp, txtTodaysOffers;
-    private String CATEGORIES_URL = "http://faidarecharge.com/webservice/getCategory.php";
-    private String STORES_URL = "http://faidarecharge.com/webservice/getStore.php";
+    private String CATEGORIES_URL = "http://faidarecharge.com/admin/getCategory.php";
+    private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
+    private static String IMAGE_URL = "http://faidarecharge.com/admin/upload_images/";
     private ArrayList<CategoryModel> categoryItems;
     private ArrayList<StoreModel> storeItems;
     private HorizontalScrollView hScrollView, hScrollView2;
@@ -194,6 +196,8 @@ public class HomeFragment extends Fragment{
                         storeItems = new GsonBuilder().create().fromJson(data.toString(), listType);
                         //filterHomePageCouponList(couponList);
 
+                        Log.e("storeItems", storeItems.toString());
+
                         setStores();
 
                     }
@@ -251,15 +255,11 @@ public class HomeFragment extends Fragment{
             LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View v = inflater.inflate(R.layout.store_item,null);
             ImageView imgLogo = (ImageView) v.findViewById(R.id.imgLogo);
-            if(storeItems.get(pos).storeName.contains("Paytm")) {
-                imgLogo.setImageResource(R.drawable.paytm_logo);
-            } else if(storeItems.get(pos).storeName.contains("Flipkart")) {
-                imgLogo.setImageResource(R.drawable.flipkart_logo );
-            } else if(storeItems.get(pos).storeName.contains("Freecharge")) {
-                imgLogo.setImageResource(R.drawable.freecharge_logo);
-            } else if(storeItems.get(pos).storeName.contains("Mobikwik")) {
-                imgLogo.setImageResource(R.drawable.mobikwik_logo);
-            }
+            String url = IMAGE_URL+storeItems.get(i).imageURL;
+
+
+            Glide.with(this)
+                    .load(url).placeholder(R.drawable.faidarecharge).into(imgLogo);
 
             linearStores.addView(v);
 
