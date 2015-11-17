@@ -10,11 +10,20 @@
     <string name="openDrawer">OpenDrawer</string>
     <string name="closeDrawer">CloseDrawer</string>
 
-    <string name="promocode">What next?\n
+   <!-- <string name="promocode">What next?\n
 1. You will be taken to recharge portal now. Wait...\n
 2. Tap again to apply promocode during checkout.\n
 3. Cashback will be credited by recharge portal\n
-In your Wallet within few hours!\n</string>
+In your Wallet within few hours!\n</string>-->
+
+     <string name="promocode">
+        Step 1: Go to recharge portal.\n
+                Step 2: Just tap again to paste in the  "Apply promode" section.\n
+                Get Extra cashback  in your wallet  from respective  recharge portals!
+</string>
 
     <string name="promocode_footer_text">( If you are not redirected to recharge portal automatically then click here)</string>
+    <string name="splash_text">Same Recharge , Extra Cashback</string>
+
+
 </resources>

@@ -3,5 +3,9 @@
 
     <stroke
         android:width="3dp"
-        android:color="@color/layoutBorderColor" />
+        android:color="@color/promoCodeColor" />
+
+    <solid android:color="@color/creameColor"/>
+
+    <corners android:radius="5dp"/>
 </shape>

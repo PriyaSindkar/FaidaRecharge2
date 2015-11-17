@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -38,6 +40,7 @@ public class SplashActivity extends ActionBarActivity {
     String PROJECT_NUMBER = "78688519071";
     String driverIMEI_Number;
     String addUSER_URL = "http://www.faidarecharge.com/admin/adduser.php";
+    TextView txtSplashText;
 
 
     @Override
@@ -48,8 +51,10 @@ public class SplashActivity extends ActionBarActivity {
 
 
         setContentView(R.layout.activity_splash);
+        txtSplashText = (TextView) findViewById(R.id.txtSplashText);
 
-
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
+        txtSplashText.setTypeface(typeface);
 
 
         if (checkInternet()) {

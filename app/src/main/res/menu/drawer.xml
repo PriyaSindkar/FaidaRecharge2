@@ -9,38 +9,24 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/settings"
+            android:id="@+id/what_is_faida_recharge"
             android:checked="false"
-            android:title="Settings" />
-
-       <!-- <item
-            android:id="@+id/sent_mail"
-            android:checked="false"
-            android:icon="@drawable/ic_send_black"
-            android:title="@string/sent_mail_string" />
+            android:title="What is Faida Recharge" />
 
         <item
-            android:id="@+id/drafts"
+            android:id="@+id/share"
             android:checked="false"
-            android:icon="@drawable/ic_drafts_black"
-            android:title="@string/draft_string" />
-
+            android:title="Share the Love" />
 
         <item
-            android:id="@+id/allmail"
+            android:id="@+id/refer_and_earn"
             android:checked="false"
-            android:icon="@drawable/ic_email_black"
-            android:title="@string/all_mail_string" />
+            android:title="Refer and Earn" />
+
         <item
-            android:id="@+id/trash"
+            android:id="@+id/write_to_us"
             android:checked="false"
-            android:icon="@drawable/ic_delete_black"
-            android:title="@string/trash_string" />
-        <item
-            android:id="@+id/spam"
-            android:checked="false"
-            android:icon="@drawable/ic_error_black"
-            android:title="@string/spam_string" />-->
+            android:title="Write to Us" />
 
     </group>
 </menu>

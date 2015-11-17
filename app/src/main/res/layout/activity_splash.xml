@@ -8,10 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txtSplashText"
         android:layout_centerInParent="true"
-        android:textSize="@dimen/VL_TEXT_SIZE"
+        android:textSize="@dimen/L1_TEXT_SIZE"
+        android:gravity="center"
         android:textColor="@color/white"
-        android:text="@string/app_name"
+        android:text="@string/splash_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

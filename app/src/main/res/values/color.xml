@@ -3,12 +3,17 @@
 
     <item name="white" type="color">#ffffff</item>
     <!--<item name="primaryColor" type="color">#8644ad</item>-->
-    <item name="primaryColor" type="color">#ff69b4</item>
+    <!--<item name="primaryColor" type="color">#ff69b4</item>-->
+    <item name="primaryColor" type="color">#ff510d</item>
     <item name="promoCodeColor" type="color">#f79646</item>
     <item name="layoutBorderColor" type="color">#8064a2</item>
     <item name="highLightColor" type="color">#19b050</item>
     <item name="navyBlueColor" type="color">#00206d</item>
     <item name="creameColor" type="color">#fcf0d8</item>
     <item name="red" type="color">#ff0000</item>
+    <item name="maroon" type="color">#cc0642</item>
+    <item name="black" type="color">#000</item>
+
+
 
 </resources>

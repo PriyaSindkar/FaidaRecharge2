@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/creameColor"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtSplashText1"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:textStyle="bold"
+        android:text="@string/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:layout_marginRight="@dimen/STD_MARGIN"
+        android:background="#d3d3d3"/>
+
+    <TextView
+        android:id="@+id/txtSplashText2"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:textStyle="bold"
+        android:text="@string/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:layout_marginRight="@dimen/STD_MARGIN"
+        android:background="#d3d3d3"/>
+
+    <TextView
+        android:id="@+id/txtSplashText3"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:text="@string/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:layout_marginRight="@dimen/STD_MARGIN"
+        android:background="#d3d3d3"/>
+
+    <TextView
+        android:id="@+id/txtSplashText4"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:text="@string/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:layout_marginRight="@dimen/STD_MARGIN"
+        android:background="#d3d3d3"/>
+
+    <TextView
+        android:id="@+id/txtSplashText5"
+        android:textSize="@dimen/M_TEXT_SIZE"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:textStyle="bold"
+        android:text="@string/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

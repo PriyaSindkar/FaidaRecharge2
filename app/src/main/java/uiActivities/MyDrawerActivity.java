@@ -14,13 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 
 import faidarecharge.com.faidarecharge.R;
+import uiFragments.AboutFragment;
 import uiFragments.HomeFragment;
+import uiFragments.ReferAndEarnFragment;
+import uiFragments.ShareFragment;
+import uiFragments.WriteToUsFragment;
 
 
 public class MyDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,7 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        this.menu = menu;
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -73,6 +79,7 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         //getMenuInflater().inflate(R.menu.menu_main, menu);
+        this.menu = menu;
         return true;
     }
 
@@ -87,6 +94,16 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
         return super.onOptionsItemSelected(item);
     }
 
+    public void hideMenu() {
+        MenuItem item_down = menu.findItem(R.id.action_search);
+        item_down.setVisible(false);
+    }
+
+    public void showMenu() {
+        MenuItem item_down = menu.findItem(R.id.action_search);
+        item_down.setVisible(true);
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -94,20 +111,40 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
         else menuItem.setChecked(true);
         //Closing drawer on item click
         drawerLayout.closeDrawers();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         switch (menuItem.getItemId()) {
             case R.id.home:
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment homeFragment = new HomeFragment();
                 fragmentTransaction.replace(R.id.frame, homeFragment);
                 fragmentTransaction.commit();
-                    return true;
-            case R.id.settings:
+                return true;
+            case R.id.what_is_faida_recharge:
+                Fragment aboutFragment = new AboutFragment();
+                fragmentTransaction.replace(R.id.frame, aboutFragment);
+                fragmentTransaction.commit();
+                return true;
+
+            case R.id.write_to_us:
+                Fragment writeToUsFrag = new WriteToUsFragment();
+                fragmentTransaction.replace(R.id.frame, writeToUsFrag);
+                fragmentTransaction.commit();
+                return true;
+
+            case R.id.refer_and_earn:
+                Fragment refernearnFrag = new ReferAndEarnFragment();
+                fragmentTransaction.replace(R.id.frame, refernearnFrag);
+                fragmentTransaction.commit();
+                return true;
+
+            case R.id.share:
+                Fragment shAREfrAG= new ShareFragment();
+                fragmentTransaction.replace(R.id.frame, shAREfrAG);
+                fragmentTransaction.commit();
                 return true;
             default:
                 return true;
         }
-
     }
 }

@@ -67,7 +67,7 @@
                 android:id="@+id/linearStores"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+                android:layout_marginBottom="@dimen/VL_TEXT_SIZE"
                 android:layout_height="@dimen/BUTTON_HEIGHT">
 
 

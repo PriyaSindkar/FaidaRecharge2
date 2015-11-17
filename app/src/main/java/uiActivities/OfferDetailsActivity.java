@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
@@ -71,6 +72,8 @@ public class OfferDetailsActivity extends ActionBarActivity {
 
         if(couponItem != null) {
             txtOfferDetails.setText(Html.fromHtml(couponItem.couponDescription));
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "arialbd.ttf");
+            txtOfferTitle.setTypeface(typeface);
             txtOfferTitle.setText(couponItem.couponTitle);
             txtPromoCode.setText(couponItem.couponCode);
 

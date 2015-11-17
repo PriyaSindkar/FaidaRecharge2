@@ -5,6 +5,7 @@ package uiCustomControls;
  */
 import android.graphics.Typeface;
 import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -33,6 +34,15 @@ public class AdvancedSpannableString extends SpannableString {
         int start = mainString.indexOf(subString);
         int end = start + subString.length();
         ForegroundColorSpan span = new ForegroundColorSpan(color);
+        setSpan(span, start, end, SPAN_EXCLUSIVE_EXCLUSIVE);
+
+    }
+
+    public void setBackgroundColor(int color, String subString) {
+
+        int start = mainString.indexOf(subString);
+        int end = start + subString.length();
+        BackgroundColorSpan span = new BackgroundColorSpan(color);
         setSpan(span, start, end, SPAN_EXCLUSIVE_EXCLUSIVE);
 
     }

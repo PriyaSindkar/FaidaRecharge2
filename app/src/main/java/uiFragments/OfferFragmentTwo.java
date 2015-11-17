@@ -3,9 +3,14 @@ package uiFragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.SearchView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -22,6 +27,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import adapters.OffersAdapter;
 import apiHelpers.CallWebService;
@@ -53,7 +59,9 @@ public class OfferFragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer_one, container, false);
+        setHasOptionsMenu(true);
        // ((MyDrawerActivity) getActivity()).setToolbarTitle("Other Offers");
+
         init(rootView);
 
         return rootView;
@@ -169,6 +177,52 @@ public class OfferFragmentTwo extends Fragment {
         }.start();
     }
 
+    @Override
+    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.menu_main, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView sv = new SearchView(((MyDrawerActivity) getActivity()).getSupportActionBar().getThemedContext());
+        MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
+        MenuItemCompat.setActionView(item, sv);
+
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Log.e("TAG_SUBMIT", query + " submitted");
+                filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.e("TAG_change", newText);
+                if (newText.length() == 0) {
+                    filterHomePageCouponList(couponList);
+                } else {
+                    filter(newText);
+                }
+                return false;
+            }
+        });
+    }
+
+    // Filter Class
+    public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        pageTwoCouponList.clear();
+        if (charText.length() == 0) {
+            filterHomePageCouponList(couponList);
+
+        } else {
+            for (CouponItem obj : couponList) {
+                if (charText.length() != 0 && obj.couponTitle.toLowerCase(Locale.getDefault()).contains(charText)) {
+                    pageTwoCouponList.add(obj);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
 
 }
 
