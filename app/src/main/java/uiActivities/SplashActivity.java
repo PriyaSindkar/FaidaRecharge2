@@ -51,10 +51,10 @@ public class SplashActivity extends ActionBarActivity {
 
 
         setContentView(R.layout.activity_splash);
-        txtSplashText = (TextView) findViewById(R.id.txtSplashText);
+        /*txtSplashText = (TextView) findViewById(R.id.txtSplashText);
 
         Typeface typeface = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
-        txtSplashText.setTypeface(typeface);
+        txtSplashText.setTypeface(typeface);*/
 
 
         if (checkInternet()) {

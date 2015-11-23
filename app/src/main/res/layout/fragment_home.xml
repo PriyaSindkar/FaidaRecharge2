@@ -22,7 +22,8 @@
             android:layout_gravity="left"
             android:textSize="@dimen/S_TEXT_SIZE"
             android:layout_margin="@dimen/STD_PADDING"
-            android:textColor="@color/red"
+            android:textColor="@color/navyBlueColor"
+            android:textStyle="bold"
             android:text="Search Faida Offers as per your requirement"/>
 
         <HorizontalScrollView
@@ -52,7 +53,8 @@
             android:layout_gravity="left"
             android:textSize="@dimen/S_TEXT_SIZE"
             android:layout_margin="@dimen/STD_PADDING"
-            android:textColor="@color/red"
+            android:textColor="@color/navyBlueColor"
+            android:textStyle="bold"
             android:text="Search Offers from Top Recharge Portals"/>
 
 
@@ -96,7 +98,7 @@
         android:layout_gravity="left"
         android:textSize="@dimen/VS_TEXT_SIZE"
         android:layout_marginLeft="@dimen/STD_MARGIN"
-        android:textColor="@color/primaryColor"
+        android:textColor="@color/navyBlueColor"
         android:text="Swipe Right for more offers!"/>
 
     <TextView
@@ -109,6 +111,7 @@
         android:textSize="@dimen/S_TEXT_SIZE"
         android:layout_marginBottom="@dimen/STD_MARGIN"
         android:layout_marginLeft="@dimen/STD_PADDING"
+        android:textStyle="bold"
         android:textColor="@color/navyBlueColor"
         android:text="Today's Offer: For Mobile, DTH Recharge and Bill Payments"/>
 

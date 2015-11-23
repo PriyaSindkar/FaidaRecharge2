@@ -1,26 +1,17 @@
 package uiFragments;
 
-import android.app.Notification;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -47,18 +38,23 @@ import uiActivities.MyDrawerActivity;
 /**
  * Created by Priya on 8/30/2015.
  */
-public class OfferFragmentOne extends Fragment {
-    OffersAdapter adapter;
-    ListView listOffers;
+public class StoresFragment extends Fragment {
+    private ListView listOffers;
+    private OffersAdapter adapter;
+    String storeForFilter;
     private static String URL = "http://faidarecharge.com/admin/getCoupons.php";
     private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
     private ArrayList<CouponItem> couponList;
-    private ArrayList<CouponItem> homePageCouponList;
-    private TextView txtEmptyView;
+    private ArrayList<CouponItem> filteredCouponList;
     private ArrayList<StoreModel> storeItems;
+    private ArrayList<CouponItem> searchList = new ArrayList<>();
+    private TextView txtEmptyView;
 
-    public static OfferFragmentOne newInstance() {
-        OfferFragmentOne f = new OfferFragmentOne();
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    }
+
+    public static StoresFragment newInstance() {
+        StoresFragment f = new StoresFragment();
         return f;
     }
 
@@ -66,9 +62,13 @@ public class OfferFragmentOne extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_offer_one, container, false);
-        ((MyDrawerActivity) getActivity()).setToolbarTitle("Home");
+        View rootView = inflater.inflate(R.layout.fragment_category, container, false);
         setHasOptionsMenu(true);
+        Bundle bundle = getArguments();
+        storeForFilter = (String) bundle.get("store_name");
+        ((MyDrawerActivity) getActivity()).setTitle(storeForFilter +" Recharge Portal Offers");
+
+        getStores();
         init(rootView);
 
         return rootView;
@@ -79,9 +79,7 @@ public class OfferFragmentOne extends Fragment {
         txtEmptyView = (TextView) rootView.findViewById(R.id.txtEmptyView);
         listOffers.setEmptyView(txtEmptyView);
 
-        getStores();
     }
-
 
     private void getCoupons() {
 
@@ -108,7 +106,7 @@ public class OfferFragmentOne extends Fragment {
                         }.getType();
 
                         couponList = new GsonBuilder().create().fromJson(data.toString(), listType);
-                        filterHomePageCouponList(couponList);
+                        filterCouponList(couponList);
 
                     }
                 }catch(JSONException jsonEx) {
@@ -124,19 +122,15 @@ public class OfferFragmentOne extends Fragment {
         }.start();
     }
 
-    public void filterHomePageCouponList(ArrayList<CouponItem> couponList) {
-        int homePageItemsCount = 0;
-        homePageCouponList = new ArrayList<>();
+    public void filterCouponList(ArrayList<CouponItem> couponList) {
+        filteredCouponList= new ArrayList<>();
 
         for(int i=0; i<couponList.size(); i++) {
-            if(couponList.get(i).ishomepage.equals("1")) {
-                if(homePageItemsCount < 4) {
-                    homePageCouponList.add(couponList.get(i));
-                }
-                homePageItemsCount++;
+            if(couponList.get(i).couponStore.equals(storeForFilter)) {
+                filteredCouponList.add(couponList.get(i));
             }
         }
-        adapter = new OffersAdapter(getActivity(), homePageCouponList, storeItems);
+        adapter = new OffersAdapter(getActivity(), filteredCouponList, storeItems);
         listOffers.setAdapter(adapter);
     }
 
@@ -144,19 +138,22 @@ public class OfferFragmentOne extends Fragment {
     public void filter(String charText) {
 
         charText = charText.toLowerCase(Locale.getDefault());
-        homePageCouponList.clear();
+        searchList.clear();
         if (charText.length() == 0) {
-            filterHomePageCouponList(couponList);
+            filterCouponList(filteredCouponList);
+            adapter.notifyDataSetChanged();
 
         } else {
-            for (CouponItem obj : couponList) {
+            for (CouponItem obj : filteredCouponList) {
 
                 if (charText.length() != 0 && obj.couponTitle.toLowerCase(Locale.getDefault()).contains(charText)) {
-                    homePageCouponList.add(obj);
+                    searchList.add(obj);
                 }
             }
+            adapter = new OffersAdapter(getActivity(), searchList, storeItems);
+            listOffers.setAdapter(adapter);
         }
-        adapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -177,7 +174,7 @@ public class OfferFragmentOne extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 if (newText.length() == 0) {
-                    filterHomePageCouponList(couponList);
+                    filterCouponList(couponList);
                 } else {
                     filter(newText);
                 }
@@ -185,6 +182,7 @@ public class OfferFragmentOne extends Fragment {
             }
         });
     }
+
     private void getStores() {
 
         final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);

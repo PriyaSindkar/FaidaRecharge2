@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment{
         txtTodaysOffers = (TextView) rootView.findViewById(R.id.txtTodaysOffers);
 
         AdvancedSpannableString sp = new AdvancedSpannableString("Today's Offer: For Mobile, DTH Recharge and Bill Payments");
-        sp.setColor(Color.parseColor("#ff0000"), "Today's Offer:");
+        sp.setColor(getResources().getColor(R.color.maroon), "Today's Offer:");
         txtTodaysOffers.setText(sp);
 
         linearCategories = (LinearLayout) rootView.findViewById(R.id.linearCategories);
@@ -266,10 +266,24 @@ public class HomeFragment extends Fragment{
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String url = storeItems.get(pos).webURL;
+
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putCharSequence("store_name", storeItems.get(pos).storeName);
+
+                    StoresFragment categoryFragment = new StoresFragment();
+                    categoryFragment.setArguments(bundle);
+
+                    fragmentTransaction.replace(R.id.frame, categoryFragment, "STORE");
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
+                   /* String url = storeItems.get(pos).webURL;
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
-                    startActivity(i);
+                    startActivity(i);*/
                 }
             });
         }

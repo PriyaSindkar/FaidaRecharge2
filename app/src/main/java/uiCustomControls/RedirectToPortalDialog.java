@@ -76,7 +76,7 @@ public class RedirectToPortalDialog extends Dialog {
 
 
         Animation anim = new AlphaAnimation(0.5f, 1.0f);
-        anim.setDuration(100); //You can manage the time of the blink with this parameter
+        anim.setDuration(700); //You can manage the time of the blink with this parameter
         anim.setStartOffset(20);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
