@@ -99,7 +99,7 @@
         android:textSize="@dimen/VS_TEXT_SIZE"
         android:layout_marginLeft="@dimen/STD_MARGIN"
         android:textColor="@color/navyBlueColor"
-        android:text="Swipe Right for more offers!"/>
+        android:text="Tap here for more offers!"/>
 
     <TextView
         android:id="@+id/txtTodaysOffers"
@@ -111,6 +111,7 @@
         android:textSize="@dimen/S_TEXT_SIZE"
         android:layout_marginBottom="@dimen/STD_MARGIN"
         android:layout_marginLeft="@dimen/STD_PADDING"
+        android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:textColor="@color/navyBlueColor"
         android:text="Today's Offer: For Mobile, DTH Recharge and Bill Payments"/>
