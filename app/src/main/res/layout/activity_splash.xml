@@ -4,10 +4,11 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
         android:src="@drawable/splash_image"
-        android:scaleType="fitCenter"/>
+        android:scaleType="centerInside"/>
 
    <!-- <TextView
         android:id="@+id/txtSplashText"

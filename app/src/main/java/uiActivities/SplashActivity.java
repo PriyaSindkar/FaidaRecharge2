@@ -73,9 +73,23 @@ public class SplashActivity extends ActionBarActivity {
                 addUser();
 
             } else {
-                Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
-                startActivity(intent);
-                finish();
+
+               new CountDownTimer(1500,1500){
+
+                   @Override
+                   public void onTick(long millisUntilFinished) {
+
+                   }
+
+                   @Override
+                   public void onFinish() {
+                       Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
+                       startActivity(intent);
+                       finish();
+                   }
+               }.start();
+
+
             }
         }else{
             Toast.makeText(getApplicationContext(), "Please connect your Internet", Toast.LENGTH_LONG).show();
@@ -102,8 +116,8 @@ public class SplashActivity extends ActionBarActivity {
                     if (gcm == null) {
                         gcm = GoogleCloudMessaging.getInstance(SplashActivity.this);
                     }
-                    regid = gcm.register(PROJECT_NUMBER);
-
+                   // regid = gcm.register(PROJECT_NUMBER);
+                    regid ="dd";
 
                     Log.e("GCM ID :", regid);
                     if(regid==null || regid==""){
@@ -165,7 +179,7 @@ public class SplashActivity extends ActionBarActivity {
 
 
                     }
-                } catch (IOException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
                 return null;
