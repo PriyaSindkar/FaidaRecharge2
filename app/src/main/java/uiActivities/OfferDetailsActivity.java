@@ -49,7 +49,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
     private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
     private static String IMAGE_URL = "http://faidarecharge.com/admin/upload_images/";
     private ArrayList<StoreModel> storeItems;
-
+    CouponItem couponItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -68,7 +68,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
         imgLogo = (ImageView) findViewById(R.id.imgLogo);
 
         ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(OfferDetailsActivity.this, "coupon-details", 0);
-        CouponItem couponItem = complexPreferences.getObject("coupon-details", CouponItem.class);
+        couponItem = complexPreferences.getObject("coupon-details", CouponItem.class);
 
         if(couponItem != null) {
             txtOfferDetails.setText(Html.fromHtml(couponItem.couponDescription));
@@ -101,7 +101,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
                 cm.setText(txtPromoCode.getText());
                 Toast.makeText(OfferDetailsActivity.this, "Promo Code Copied", Toast.LENGTH_SHORT).show();
 
-                RedirectToPortalDialog box = new RedirectToPortalDialog(OfferDetailsActivity.this);
+                RedirectToPortalDialog box = new RedirectToPortalDialog(OfferDetailsActivity.this,couponItem.websiteLink,couponItem.couponStore);
                 box.show();
             }
         });
