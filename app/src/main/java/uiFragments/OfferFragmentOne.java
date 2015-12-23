@@ -85,7 +85,7 @@ public class OfferFragmentOne extends Fragment {
 
     private void getCoupons() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Promo Codes", true);
         circleDialog.setCancelable(true);
         circleDialog.show();
 
@@ -187,7 +187,7 @@ public class OfferFragmentOne extends Fragment {
     }
     private void getStores() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Stores", true);
         circleDialog.setCancelable(true);
         circleDialog.show();
 
