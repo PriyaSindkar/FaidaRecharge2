@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/HEADER_SIZE"
+        android:layout_alignParentTop="true"
+        android:background="@color/primaryColor">
+
+        <TextView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_navigation_arrow_back"
+            android:drawablePadding="@dimen/STD_PADDING"
+            android:gravity="center"
+            android:padding="@dimen/STD_PADDING"
+            android:text="Offer Details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/L_TEXT_SIZE" />
+    </LinearLayout>
+</RelativeLayout>

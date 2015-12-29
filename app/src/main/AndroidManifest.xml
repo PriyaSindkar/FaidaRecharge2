@@ -78,6 +78,18 @@
             android:label="@string/offer_details" >
         </activity>
 
+        <activity
+            android:name="login.BaseLoginActivity" >
+        </activity>
+
+        <activity
+            android:name="login.WelcomeActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.ReferralSystemDetailsActivity" >
+        </activity>
+
 
     </application>
 

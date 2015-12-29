@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -23,13 +22,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import apiHelpers.EnumType;
 import apiHelpers.GetPostClass;
 import faidarecharge.com.faidarecharge.R;
+import login.BaseLoginActivity;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -83,7 +82,7 @@ public class SplashActivity extends ActionBarActivity {
 
                    @Override
                    public void onFinish() {
-                       Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
+                       Intent intent = new Intent(getBaseContext(), BaseLoginActivity.class);
                        startActivity(intent);
                        finish();
                    }
@@ -163,7 +162,7 @@ public class SplashActivity extends ActionBarActivity {
                             public void response(String response) {
                                 Log.e("### res",response);
 
-                                Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
+                                Intent intent = new Intent(getBaseContext(), BaseLoginActivity.class);
                                 startActivity(intent);
                                 finish();
                             }

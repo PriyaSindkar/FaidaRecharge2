@@ -25,5 +25,13 @@ In your Wallet within few hours!\n</string>-->
     <string name="promocode_footer_text">( If you are not redirected to recharge portal automatically then click here)</string>
     <string name="splash_text">Same Recharge , Extra Cashback</string>
 
+    <string name="welcome_new_user">WELCOME!\nThanks For Installing Faida Recharge\n\n\nNew User Options</string>
+    <string name="welcome_discounts_text">Get Discounts/Cashbacks From Our Partner Operators</string>
+    <string name="welcome_earn_text">Earn Passive Income Using Our Referral System</string>
+
+    <string name="referral_system_intro_detail1">Get 1% Real Cash for Self Recharge</string>
+    <string name="referral_system_intro_detail2">Refer your Friends : Get 10% of their earning</string>
+    <string name="referral_system_intro_detail3">When your friends refer their friends: Get 10% of their earning</string>
+    <string name="referral_system_intro_detail4">When your friends’ friend refer their friends: Then Also get 10% of their earning.</string>
 
 </resources>
