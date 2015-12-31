@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         layout="@layout/app_bar" />
 
-   <!-- <ScrollView
+    <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,6 +47,12 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
                         android:textColor="@color/primaryColor"
                         android:textSize="@dimen/M_TEXT_SIZE" />
+                    
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="@dimen/STD_MARGIN"
+                        android:background="@color/grey"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -61,6 +67,12 @@
                         android:textColor="@color/primaryColor"
                         android:textSize="@dimen/M_TEXT_SIZE" />
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="@dimen/STD_MARGIN"
+                        android:background="@color/grey"/>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -73,6 +85,12 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
                         android:textColor="@color/primaryColor"
                         android:textSize="@dimen/M_TEXT_SIZE" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="@dimen/STD_MARGIN"
+                        android:background="@color/grey"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -93,7 +111,7 @@
 
 
         </LinearLayout>
-    </ScrollView>-->
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/linearBottom"
@@ -105,6 +123,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/linearSignup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -136,6 +155,7 @@
             android:layout_height="match_parent"/>
 
         <LinearLayout
+            android:id="@+id/linearCalculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -164,17 +184,7 @@
 
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_below="@id/toolbar"
-        android:layout_above="@id/linearBottom"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-
-
-    </android.support.v4.view.ViewPager>
 
 
 </RelativeLayout>

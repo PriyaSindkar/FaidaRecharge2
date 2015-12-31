@@ -90,6 +90,14 @@
             android:name="uiReferralSystem.ReferralSystemDetailsActivity" >
         </activity>
 
+        <activity
+            android:name="uiReferralSystem.CalculateActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.SignupActivity" >
+        </activity>
+
 
     </application>
 
