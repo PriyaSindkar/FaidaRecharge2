@@ -98,6 +98,14 @@
             android:name="uiReferralSystem.SignupActivity" >
         </activity>
 
+        <activity
+            android:name="login.LoginActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.DashboardActivity" >
+        </activity>
+
 
     </application>
 

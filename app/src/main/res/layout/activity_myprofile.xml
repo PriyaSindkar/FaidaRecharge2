@@ -9,33 +9,58 @@
         android:id="@+id/toolbar"
         layout="@layout/app_bar" />
 
-    <ScrollView
+
+    <LinearLayout
+        android:id="@+id/linearHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/STD_MARGIN"
+        android:layout_marginRight="@dimen/STD_MARGIN"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textUserId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:text="User Id; 100001" />
+
+            <TextView
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Referred By: John Doe" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/STD_MARGIN"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="10002" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearHeader"
         android:layout_margin="@dimen/STD_MARGIN">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/STD_MARGIN"
-                android:orientation="vertical">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Reference Promo Code" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Use Your Friend's Promocode or Use 'Faida'" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,11 +74,6 @@
                     android:layout_weight="2"
                     android:hint="Nick Name" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/STD_MARGIN"
-                    android:text="Check Availability" />
             </LinearLayout>
 
             <LinearLayout
@@ -97,7 +117,18 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email" />
+                    android:hint="Email Id" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,8 +147,6 @@
                     android:layout_height="wrap_content"
                     android:hint="Mobile No." />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -158,10 +187,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/VS_TEXT_SIZE"
             android:layout_weight="1"
             android:background="@drawable/login_button"
             android:gravity="center"
-            android:layout_margin="@dimen/VS_TEXT_SIZE"
             android:padding="@dimen/STD_MARGIN">
 
             <ImageView
@@ -179,7 +208,7 @@
                 android:maxLines="3"
                 android:padding="@dimen/STD_MARGIN"
                 android:singleLine="false"
-                android:text="Sign Up"
+                android:text="Edit Profile"
                 android:textColor="@color/white"
                 android:textSize="@dimen/M_TEXT_SIZE" />
 

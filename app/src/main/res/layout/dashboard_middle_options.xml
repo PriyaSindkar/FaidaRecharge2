@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearBottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/primaryColor"
+    android:gravity="center"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:maxLines="3"
+        android:padding="@dimen/STD_MARGIN"
+        android:singleLine="false"
+        android:text="Earning Payment Structure"
+        android:textColor="@color/white"
+        android:textSize="@dimen/VS_TEXT_SIZE" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="3"
+        android:padding="@dimen/STD_MARGIN"
+        android:singleLine="false"
+        android:text="How To Refer and Earn"
+        android:textColor="@color/white"
+        android:textSize="@dimen/VS_TEXT_SIZE" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="3"
+        android:padding="@dimen/STD_MARGIN"
+        android:singleLine="false"
+        android:text="Knowledge Base"
+        android:textColor="@color/white"
+        android:textSize="@dimen/VS_TEXT_SIZE" />
+
+
+</LinearLayout>

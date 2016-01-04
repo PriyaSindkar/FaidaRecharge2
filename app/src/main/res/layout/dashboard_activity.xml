@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
@@ -18,6 +19,7 @@
         android:layout_margin="@dimen/STD_PADDING"
         android:src="@drawable/ic_logout" />
 
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -32,148 +34,10 @@
             android:orientation="vertical"
             android:padding="@dimen/STD_PADDING">
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/STD_MARGIN"
-                android:layout_marginLeft="@dimen/STD_MARGIN"
-                android:layout_marginRight="@dimen/STD_MARGIN">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <include layout="@layout/dashboard_header_view" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="2"
-                            android:ellipsize="end"
-                            android:maxLines="3"
-                            android:padding="@dimen/SMALL_STD_MARGIN"
-                            android:singleLine="false"
-                            android:text="Welcome Krishna"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:textColor="@color/primaryColor"
-                            android:textSize="@dimen/S_TEXT_SIZE" />
-
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:ellipsize="end"
-                        android:maxLines="3"
-                        android:padding="@dimen/SMALL_STD_MARGIN"
-                        android:singleLine="false"
-                        android:text="Krishna Patel"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/primaryColor"
-                        android:textSize="@dimen/S_TEXT_SIZE" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:ellipsize="end"
-                        android:maxLines="3"
-                        android:padding="@dimen/SMALL_STD_MARGIN"
-                        android:singleLine="false"
-                        android:text="100001"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/primaryColor"
-                        android:textSize="@dimen/S_TEXT_SIZE" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:ellipsize="end"
-                        android:maxLines="3"
-                        android:padding="@dimen/SMALL_STD_MARGIN"
-                        android:singleLine="false"
-                        android:text="Promo Code: 2LKrishna1"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/primaryColor"
-                        android:textSize="@dimen/S_TEXT_SIZE" />
-
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <LinearLayout
-                android:id="@+id/linearBottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="@color/primaryColor"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:maxLines="3"
-                    android:padding="@dimen/STD_MARGIN"
-                    android:singleLine="false"
-                    android:text="Earning Payment Structure"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/VS_TEXT_SIZE" />
-
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="3"
-                    android:padding="@dimen/STD_MARGIN"
-                    android:singleLine="false"
-                    android:text="How To Refer and Earn"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/VS_TEXT_SIZE" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="3"
-                    android:padding="@dimen/STD_MARGIN"
-                    android:singleLine="false"
-                    android:text="Knowledge Base"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/VS_TEXT_SIZE" />
-
-
-            </LinearLayout>
+            <include layout="@layout/dashboard_middle_options" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -349,15 +213,47 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-
                     </LinearLayout>
 
                 </HorizontalScrollView>
 
             </LinearLayout>
 
+
         </LinearLayout>
+
+
     </ScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="2"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:padding="@dimen/STD_MARGIN"
+        android:singleLine="false"
+        android:text="Terms and Conditions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/S_TEXT_SIZE"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/frameOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"></FrameLayout>
+
+    <include
+        layout="@layout/dashboard_floating_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
 
 
 </RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/floatingActionsMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        fab:fab_addButtonColorNormal="@color/primaryColor"
+        fab:fab_addButtonColorPressed="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_addButtonPlusIconColor="#ffffff">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/myProfileActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorPressed="@color/white"
+            fab:fab_title="MY PROFILE" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/myReferalStatusActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorPressed="@color/white"
+            fab:fab_title="MY REFERRAL STATUS" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/myEarningActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorPressed="@color/white"
+            fab:fab_title="MY EARNINGS" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/payoutActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorPressed="@color/white"
+            fab:fab_title="PAYOUT" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/helpActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorPressed="@color/white"
+            fab:fab_title="HELP" />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</LinearLayout>

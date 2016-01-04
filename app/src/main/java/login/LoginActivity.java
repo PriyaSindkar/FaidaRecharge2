@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import faidarecharge.com.faidarecharge.R;
 import uiActivities.MyDrawerActivity;
+import uiReferralSystem.DashboardActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MyDrawerActivity.class);
+                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });

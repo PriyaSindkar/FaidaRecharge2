@@ -25,4 +25,9 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/floating_menu_item_bg</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
