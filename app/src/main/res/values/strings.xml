@@ -38,6 +38,51 @@
         <item>Female</item>
     </string-array>
 
+    <string-array name="subjects">
+        <item>Payout Problem</item>
+        <item>Self Recharge Value Not Shown</item>
+        <item>Missing Referral Details</item>
+    </string-array>
+
     <string name="how_to_earn">Share promo code with friends through  Whats App, Facebook, Twitter, Instagram, Email friends and Earn Real Cash when they install using your promo code and use our app.</string>
-    <string name="terms_and_conditions"></string>
+
+    <string name="terms_and_conditions">
+        Faida Recharge is a product of Sudipta Enterprises, Odisha and comes under jurdiction of Dhenkanal, Odisha Only.
+Any dispute arises would be under the aforesaid jurdiction.  Faida recharge offers cashback when you or your friends completes a recharge from its active partners portals. The percentage of sharing is given in the Earning Payout structure. It varies time to time. Likewise, Faida Recharges increases or decreases its commission structure in the Earning Payout structure.
+
+        </string>
+
+    <string name="refer_and_earn_prime_level_1">You – Primary Level- </string>
+    <string name="refer_and_earn_prime_level_2"> Cash of  recharge value from active partner portals ( As on date </string>
+    <string name="refer_and_earn_level_1" formatted="false">You refer – It is called 1st Level – Your friends earn 1% of their Recharge Value and you earn 10% of your friends earning </string>
+    <string name="refer_and_earn_level_2" formatted="false">Your friend refers  – 2nd Level – Same is for your friend’s referral and you earn 10% of your friend’s friend earning</string>
+    <string name="refer_and_earn_level_3" formatted="false">Your friend’s friend refers – 3rd level-  Same process repeats for them and you earn 10% of earning the friend of your friend’s friend.</string>
+
+
+    <string name="how_refer_and_earn_1" formatted="false">You earn 1% of your Cashback from Faida Recharge for self recharge. When you refer your friends they also earn the same and you earn 10% of their earning. Your friend refer their friends. They also earn the same and you earn again 10% of their earning. When the friends of your friends refers they earn same and you also earn 10% of their recharge amount.
+
+That’s the fun! You have the opportunity to earn real cash for the entire referred group. It would continue till any of the member in the group recharges any mobile, pays any post paid bills or pay DTH recharges.
+</string>
+
+    <string name="how_refer_and_earn_2" formatted="false"> 1.  Start recharge, payment of mobile bills, DTH recharge etc. Use the promocodes and get instant cashback from recharge portals, .
+2. Along with this, you would get 1% Cashback extra for your recharge amount at your active partner’s portal.
+3. Plus start sharing this app in your facebook, whatsapp, email etc. Connect to all your friends. Just say them to sign up using your Referral Promo Code and teach them how to use this app. Also teach them personally that how they could  refer others. That’s all.  After few days, You would see the massive earning in your user’s dashboard.
+
+        </string>
+
+    <string name="share_content1">Hi,
+
+I use Faida Recharge App for receiving instant discount/ cashback from Paytm, Freecharge, mobikwik etc. Install this app and enjoy best cashback offers on Market.
+The best part is that you can  Earn real cash referring your friends.\n\n</string>
+
+    <string name="share_content2">Install this App. Sign up using my Referral Code </string>
+    <string name="share_content3">Let me know if you need any assistance.\n\nInstall Now.\n\n</string>
+    <string name="share_content4">Regards, \n</string>
+
+    <string name="kb_title1">What is Referral, Referrer and Referral system, Cashback, Recharge Portals, etc?</string>
+    <string name="kb_title2">What is Referral Promo code?</string>
+    <string name="kb_title3">When would I get Paid?</string>
+    <string name="kb_title4">How do  I get paid?</string>
+    <string name="kb_title5">What is the type of payout?</string>
+
 </resources>

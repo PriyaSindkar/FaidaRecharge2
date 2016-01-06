@@ -1,0 +1,144 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include
+        layout="@layout/app_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:layout_marginRight="@dimen/STD_MARGIN"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/STD_MARGIN"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/STD_MARGIN"
+                    android:paddingTop="@dimen/STD_MARGIN"
+                    android:singleLine="true"
+                    android:text="@string/refer_and_earn_prime_level_1"
+                    android:textSize="@dimen/VS_TEXT_SIZE"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSplashText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/STD_MARGIN"
+                    android:paddingTop="@dimen/STD_MARGIN"
+                    android:singleLine="true"
+                    android:text="1%"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/VS_TEXT_SIZE"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/STD_MARGIN"
+                    android:paddingTop="@dimen/STD_MARGIN"
+                    android:text="@string/refer_and_earn_prime_level_1"
+                    android:textSize="@dimen/VS_TEXT_SIZE"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSplashText12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/STD_MARGIN"
+                    android:paddingTop="@dimen/STD_MARGIN"
+                    android:singleLine="true"
+                    android:text=" Paytm, Freecharge) ."
+                    android:textColor="@color/primaryColor"
+                    android:textSize="@dimen/VS_TEXT_SIZE" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:layout_marginRight="@dimen/STD_MARGIN"
+                android:background="#d3d3d3" />
+
+            <TextView
+                android:id="@+id/txtSplashText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:gravity="left"
+                android:padding="@dimen/STD_MARGIN"
+                android:text="@string/refer_and_earn_level_1"
+                android:textSize="@dimen/VS_TEXT_SIZE"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:layout_marginRight="@dimen/STD_MARGIN"
+                android:background="#d3d3d3" />
+
+            <TextView
+                android:id="@+id/txtSplashText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:gravity="left"
+                android:padding="@dimen/STD_MARGIN"
+                android:text="@string/refer_and_earn_level_2"
+                android:textSize="@dimen/VS_TEXT_SIZE"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:layout_marginRight="@dimen/STD_MARGIN"
+                android:background="#d3d3d3" />
+
+            <TextView
+                android:id="@+id/txtSplashText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:gravity="left"
+                android:padding="@dimen/STD_MARGIN"
+                android:text="@string/refer_and_earn_level_3"
+                android:textSize="@dimen/VS_TEXT_SIZE"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/STD_MARGIN"
+                android:layout_marginRight="@dimen/STD_MARGIN"
+                android:background="#d3d3d3" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

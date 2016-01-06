@@ -5,19 +5,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_marginTop="@dimen/VS_TEXT_SIZE"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/logo" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="@dimen/VS_TEXT_SIZE"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/splash_image" />
 
 
         <TextView
@@ -26,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:background="@color/primaryColor"
+            android:background="@drawable/login_button"
             android:gravity="center"
             android:padding="@dimen/L1_TEXT_SIZE"
             android:text="New User"
@@ -38,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:background="@color/primaryColor"
+            android:background="@drawable/login_button"
             android:gravity="center"
             android:padding="@dimen/L1_TEXT_SIZE"
             android:text="Login"

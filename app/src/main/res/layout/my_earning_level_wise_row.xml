@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/STD_MARGIN"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="3"
+        android:padding="@dimen/SMALL_STD_MARGIN"
+        android:singleLine="false"
+        android:text="Earning Pending for Approval	"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/maroon"
+        android:textSize="@dimen/M_TEXT_SIZE" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="3"
+        android:padding="@dimen/SMALL_STD_MARGIN"
+        android:singleLine="false"
+        android:text="Self Recharge Earning: 10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/S_TEXT_SIZE" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/STD_MARGIN"
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="3"
+            android:padding="@dimen/STD_MARGIN"
+            android:singleLine="false"
+            android:text="1st Level Earning?"
+            android:textColor="@color/white"
+            android:textSize="@dimen/VS_TEXT_SIZE" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:padding="@dimen/STD_MARGIN"
+            android:singleLine="false"
+            android:text="2nd Level Earning?"
+            android:textColor="@color/white"
+            android:textSize="@dimen/VS_TEXT_SIZE" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:padding="@dimen/STD_MARGIN"
+            android:singleLine="false"
+            android:text="3rd Level Earning?"
+            android:textColor="@color/white"
+            android:textSize="@dimen/VS_TEXT_SIZE" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

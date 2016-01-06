@@ -106,6 +106,34 @@
             android:name="uiReferralSystem.DashboardActivity" >
         </activity>
 
+        <activity
+            android:name="uiReferralSystem.MyEarningActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.MyProfileActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.PayoutActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.HelpActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.ReferAndEarnInfoActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.HowToReferAndEarnInfoActivity" >
+        </activity>
+
+        <activity
+            android:name="uiReferralSystem.KnowledgeBaseActivity" >
+        </activity>
+
 
     </application>
 

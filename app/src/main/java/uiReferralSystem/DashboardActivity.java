@@ -1,5 +1,6 @@
 package uiReferralSystem;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +12,13 @@ import android.widget.TextView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
+import org.w3c.dom.Text;
+
 import faidarecharge.com.faidarecharge.R;
+import uiCustomControls.TermsAndConditionsDialog;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
-    TextView imgBack;
+    TextView imgBack, txtReadMore,txtEarnAndRefer, txtHowToEarnAndRefer, txtKnowledgeBase;
     FrameLayout frameOverlay;
     FloatingActionsMenu floatingActionsMenu;
     FloatingActionButton myProfileActionButton, myReferalStatusActionButton, myEarningActionButton, payoutActionButton, helpActionButton;
@@ -35,6 +39,15 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         myEarningActionButton = (FloatingActionButton) findViewById(R.id.myEarningActionButton);
         payoutActionButton = (FloatingActionButton) findViewById(R.id.payoutActionButton);
         helpActionButton = (FloatingActionButton) findViewById(R.id.helpActionButton);
+
+        txtReadMore = (TextView) findViewById(R.id.txtReadMore);
+        txtReadMore.setOnClickListener(this);
+        txtEarnAndRefer = (TextView) findViewById(R.id.txtEarnAndRefer);
+        txtEarnAndRefer.setOnClickListener(this);
+        txtHowToEarnAndRefer = (TextView) findViewById(R.id.txtHowToEarnAndRefer);
+        txtHowToEarnAndRefer.setOnClickListener(this);
+        txtKnowledgeBase = (TextView) findViewById(R.id.txtKnowledgeBase);
+        txtKnowledgeBase.setOnClickListener(this);
 
         myProfileActionButton.setOnClickListener(this);
         myReferalStatusActionButton.setOnClickListener(this);
@@ -61,23 +74,46 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 frameOverlay.setOnTouchListener(null);
             }
         });
-
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.myProfileActionButton:
+                Intent intent = new Intent(DashboardActivity.this, MyProfileActivity.class);
+                startActivity(intent);
                 break;
             case R.id.myReferalStatusActionButton:
                 break;
             case R.id.myEarningActionButton:
+                intent = new Intent(DashboardActivity.this, MyEarningActivity.class);
+                startActivity(intent);
                 break;
             case R.id.payoutActionButton:
+                intent = new Intent(DashboardActivity.this, PayoutActivity.class);
+                startActivity(intent);
                 break;
             case R.id.helpActionButton:
+                intent = new Intent(DashboardActivity.this, HelpActivity.class);
+                startActivity(intent);
                 break;
+            case R.id.txtReadMore:
+                TermsAndConditionsDialog dialog = new TermsAndConditionsDialog(this);
+                dialog.show();
+                break;
+            case R.id.txtEarnAndRefer:
+                intent = new Intent(DashboardActivity.this, ReferAndEarnInfoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.txtHowToEarnAndRefer:
+                intent = new Intent(DashboardActivity.this, HowToReferAndEarnInfoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.txtKnowledgeBase:
+                intent = new Intent(DashboardActivity.this, KnowledgeBaseActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }

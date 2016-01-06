@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/app_bar"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/STD_MARGIN">
+
+        <LinearLayout
+            android:layout_margin="@dimen/VS_TEXT_SIZE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:padding="@dimen/SMALL_STD_MARGIN"
+                android:singleLine="false"
+                android:text="Approved Earning"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/S_TEXT_SIZE" />
+
+            <TextView
+                android:layout_marginTop="@dimen/VS_TEXT_SIZE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:padding="@dimen/VS_TEXT_SIZE"
+                android:singleLine="false"
+                android:background="@drawable/login_button"
+                android:text="Request Withdrawal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/S_TEXT_SIZE" />
+
+            <TextView
+                android:layout_marginTop="@dimen/VS_TEXT_SIZE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:drawableRight="@drawable/icon_back"
+                android:padding="@dimen/VS_TEXT_SIZE"
+                android:singleLine="false"
+                android:background="@drawable/login_button"
+                android:text="Withdrawal Under Process: 1000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/S_TEXT_SIZE" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/STD_MARGIN">
+
+        <LinearLayout
+            android:layout_margin="@dimen/VS_TEXT_SIZE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTotalPaidAmount"
+                android:layout_marginTop="@dimen/VS_TEXT_SIZE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:drawableRight="@drawable/icon_back"
+                android:padding="@dimen/VS_TEXT_SIZE"
+                android:singleLine="false"
+                android:background="@drawable/login_button"
+                android:text="Total Paid Amount: 20000"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/S_TEXT_SIZE" />
+
+            <LinearLayout
+                android:id="@+id/linearPaymentDetails"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/STD_MARGIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_margin="@dimen/STD_MARGIN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Payment Details"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Date of Payment: 2015-12-23"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/maroon"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Transfer Reference No.: 10101010"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/maroon"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Paid Amount: 20000"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/maroon"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Paypal/NEFT Details: ABCKrishna"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/maroon"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:padding="@dimen/SMALL_STD_MARGIN"
+                    android:singleLine="false"
+                    android:text="Payment Status: Paid"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/maroon"
+                    android:textSize="@dimen/S_TEXT_SIZE" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

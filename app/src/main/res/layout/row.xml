@@ -1,0 +1,11 @@
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textView2"
+    android:layout_margin="@dimen/STD_MARGIN"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:textColor="@color/white"
+    android:background="@color/promoCodeColor"
+    android:drawableRight="@drawable/icon_back"
+    android:padding="@dimen/VS_TEXT_SIZE"/>

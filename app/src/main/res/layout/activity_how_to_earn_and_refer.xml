@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/STD_MARGIN">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/VS_TEXT_SIZE"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="@dimen/STD_MARGIN"
+                        android:text="When You Earn"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/VS_TEXT_SIZE"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtSplashText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/STD_MARGIN"
+                        android:gravity="left"
+                        android:padding="@dimen/STD_MARGIN"
+                        android:text="@string/how_refer_and_earn_1"
+                        android:textSize="@dimen/VS_TEXT_SIZE"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/STD_MARGIN"
+                        android:layout_marginRight="@dimen/STD_MARGIN"
+                        android:background="#d3d3d3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/LOGO_SIZE"
+                            android:layout_margin="@dimen/VS_TEXT_SIZE"
+                            android:layout_weight="1"
+                            android:background="@drawable/login_button"
+                            android:gravity="center"
+                            android:padding="@dimen/STD_MARGIN">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_calculator" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:maxLines="7"
+                                android:padding="@dimen/STD_PADDING"
+                                android:singleLine="false"
+                                android:text="Estimate of Group Earning"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/VS_TEXT_SIZE" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/LOGO_SIZE"
+                            android:layout_margin="@dimen/VS_TEXT_SIZE"
+                            android:layout_weight="1"
+                            android:background="@drawable/login_button"
+                            android:gravity="center"
+                            android:padding="@dimen/STD_MARGIN">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_calculator" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:maxLines="7"
+                                android:padding="@dimen/STD_PADDING"
+                                android:singleLine="false"
+                                android:text="Calculate an Estimate of Referral Earning"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/VS_TEXT_SIZE" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/STD_MARGIN">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/VS_TEXT_SIZE"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="@dimen/STD_MARGIN"
+                        android:text="How to start earning?"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/VS_TEXT_SIZE"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/STD_MARGIN"
+                        android:gravity="left"
+                        android:padding="@dimen/STD_MARGIN"
+                        android:text="@string/how_refer_and_earn_2"
+                        android:textSize="@dimen/VS_TEXT_SIZE"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/STD_MARGIN"
+                        android:layout_marginRight="@dimen/STD_MARGIN"
+                        android:background="#d3d3d3" />
+
+                    <LinearLayout
+                        android:id="@+id/linearShare"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/LOGO_SIZE"
+                        android:layout_margin="@dimen/VS_TEXT_SIZE"
+                        android:layout_weight="1"
+                        android:background="@drawable/login_button"
+                        android:gravity="center"
+                        android:padding="@dimen/STD_MARGIN">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_social_share" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:maxLines="7"
+                            android:padding="@dimen/STD_PADDING"
+                            android:singleLine="false"
+                            android:text="Share"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/VS_TEXT_SIZE" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

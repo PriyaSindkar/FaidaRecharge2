@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.v7.widget.CardView
-
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/STD_MARGIN"
-    android:layout_marginLeft="@dimen/STD_MARGIN"
-    android:layout_marginRight="@dimen/STD_MARGIN"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_margin="@dimen/STD_MARGIN">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_weight="2"
-                    android:ellipsize="end"
-                    android:maxLines="3"
-                    android:padding="@dimen/SMALL_STD_MARGIN"
-                    android:singleLine="false"
-                    android:text="Welcome Krishna"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="@dimen/S_TEXT_SIZE" />
-
-
-            </LinearLayout>
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_weight="2"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:padding="@dimen/SMALL_STD_MARGIN"
                 android:singleLine="false"
-                android:text="Krishna Patel"
+                android:text="Welcome Krishna"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/primaryColor"
+                android:textColor="@color/maroon"
                 android:textSize="@dimen/S_TEXT_SIZE" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/imgLogout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:padding="@dimen/SMALL_STD_MARGIN"
-                android:singleLine="false"
-                android:text="100001"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/S_TEXT_SIZE" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:padding="@dimen/SMALL_STD_MARGIN"
-                android:singleLine="false"
-                android:text="Promo Code: 2LKrishna1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/primaryColor"
-                android:textSize="@dimen/S_TEXT_SIZE" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/toolbar"
+                android:layout_margin="@dimen/STD_PADDING"
+                android:src="@drawable/ic_logout"
+                android:tint="@color/maroon"
+                android:tintMode="src_atop" />
 
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="@dimen/SMALL_STD_MARGIN"
+            android:singleLine="false"
+            android:text="Krishna Patel"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/maroon"
+            android:textSize="@dimen/S_TEXT_SIZE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="@dimen/SMALL_STD_MARGIN"
+            android:singleLine="false"
+            android:text="100001"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/maroon"
+            android:textSize="@dimen/S_TEXT_SIZE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="@dimen/SMALL_STD_MARGIN"
+            android:singleLine="false"
+            android:text="Promo Code: 2LKrishna1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/maroon"
+            android:textSize="@dimen/S_TEXT_SIZE" />
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
