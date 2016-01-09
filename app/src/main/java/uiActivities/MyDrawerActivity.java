@@ -14,9 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import faidarecharge.com.faidarecharge.R;
+import login.BaseLoginFragment;
 import uiFragments.AboutFragment;
 import uiFragments.HomeFragment;
-import uiFragments.ReferAndEarnFragment;
 import uiFragments.ShareFragment;
 import uiFragments.WriteToUsFragment;
 
@@ -133,9 +133,11 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
                 return true;
 
             case R.id.refer_and_earn:
-                Fragment refernearnFrag = new ReferAndEarnFragment();
+                Fragment refernearnFrag = new BaseLoginFragment();
                 fragmentTransaction.replace(R.id.frame, refernearnFrag);
                 fragmentTransaction.commit();
+                /*Intent intent = new Intent(this, BaseLoginFragment.class);
+                startActivity(intent);*/
                 return true;
 
             case R.id.share:

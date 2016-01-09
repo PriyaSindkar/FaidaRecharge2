@@ -9,7 +9,22 @@
         android:id="@+id/toolbar"
         layout="@layout/app_bar" />
 
+    <TextView
+        android:id="@+id/txtHowItWorks"
+        android:layout_below="@id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/SMALL_STD_MARGIN"
+        android:text="How It Works?"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/STD_MARGIN"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/maroon"
+        android:textSize="@dimen/M_TEXT_SIZE" />
+
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -146,13 +161,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@color/white"
-            android:padding="@dimen/STD_MARGIN"
-            android:text="@string/referral_system_intro_calculation"/>
 
 
     </LinearLayout>

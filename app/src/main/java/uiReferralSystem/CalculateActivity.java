@@ -2,12 +2,14 @@ package uiReferralSystem;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import faidarecharge.com.faidarecharge.R;
+import uiCustomControls.HowItWorksCalculatorDialog;
 
 public class CalculateActivity extends AppCompatActivity {
-    TextView imgBack;
+    TextView imgBack, txtHowItWorks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,15 @@ public class CalculateActivity extends AppCompatActivity {
         imgBack = (TextView) findViewById(R.id.imgBack);
         imgBack.setText(getResources().getString(R.string.app_name));
 
+        txtHowItWorks = (TextView) findViewById(R.id.txtHowItWorks);
+
+        txtHowItWorks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HowItWorksCalculatorDialog dialog = new HowItWorksCalculatorDialog(CalculateActivity.this);
+                dialog.show();
+            }
+        });
 
     }
 }

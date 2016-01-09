@@ -28,7 +28,7 @@ import java.util.List;
 import apiHelpers.EnumType;
 import apiHelpers.GetPostClass;
 import faidarecharge.com.faidarecharge.R;
-import login.BaseLoginActivity;
+import login.BaseLoginFragment;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -82,7 +82,7 @@ public class SplashActivity extends ActionBarActivity {
 
                    @Override
                    public void onFinish() {
-                       Intent intent = new Intent(getBaseContext(), BaseLoginActivity.class);
+                       Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
                        startActivity(intent);
                        finish();
                    }
@@ -162,7 +162,7 @@ public class SplashActivity extends ActionBarActivity {
                             public void response(String response) {
                                 Log.e("### res",response);
 
-                                Intent intent = new Intent(getBaseContext(), BaseLoginActivity.class);
+                                Intent intent = new Intent(getBaseContext(), BaseLoginFragment.class);
                                 startActivity(intent);
                                 finish();
                             }
