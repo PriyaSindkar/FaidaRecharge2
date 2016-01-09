@@ -25,14 +25,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
         imgBack.setText(getResources().getString(R.string.app_name));
 
-        txtGetDiscounts.setOnClickListener(new View.OnClickListener() {
+        /*txtGetDiscounts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, MyDrawerActivity.class);
                 startActivity(intent);
 
             }
-        });
+        });*/
 
         txtEarn.setOnClickListener(new View.OnClickListener() {
             @Override

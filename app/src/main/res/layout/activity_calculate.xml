@@ -25,7 +25,8 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_below="@id/toolbar"
+        android:layout_above="@+id/linearBottom"
+        android:layout_below="@id/txtHowItWorks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

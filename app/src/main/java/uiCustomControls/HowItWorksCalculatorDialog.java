@@ -19,7 +19,7 @@ import faidarecharge.com.faidarecharge.R;
  */
 public class HowItWorksCalculatorDialog extends Dialog {
     ImageView cancel;
-    TextView edDetails, txtread;
+    TextView edDetails, txtread, txtHeading;
 
     Context context;
 
@@ -52,5 +52,9 @@ public class HowItWorksCalculatorDialog extends Dialog {
 
         txtread = (TextView) findViewById(R.id.txtread);
         txtread.setVisibility(View.GONE);
+
+        txtHeading = (TextView) findViewById(R.id.txtHeading);
+        txtHeading.setText("How It Works");
+
     }
 }
