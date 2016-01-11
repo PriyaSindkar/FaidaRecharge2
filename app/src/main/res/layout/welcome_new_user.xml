@@ -39,6 +39,7 @@
             android:layout_margin="@dimen/L1_TEXT_SIZE"
             android:background="@drawable/login_button"
             android:gravity="center"
+            android:visibility="gone"
             android:padding="@dimen/L1_TEXT_SIZE"
             android:text="@string/welcome_discounts_text"
             android:textColor="@color/white" />

@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.victor.loading.rotate.RotateLoading;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,6 +57,7 @@ public class OfferFragmentOne extends Fragment {
     private ArrayList<CouponItem> homePageCouponList;
     private TextView txtEmptyView;
     private ArrayList<StoreModel> storeItems;
+    private RotateLoading rotateloading;
 
     public static OfferFragmentOne newInstance() {
         OfferFragmentOne f = new OfferFragmentOne();
@@ -78,23 +80,25 @@ public class OfferFragmentOne extends Fragment {
         listOffers = (ListView) rootView.findViewById(R.id.listOffers);
         txtEmptyView = (TextView) rootView.findViewById(R.id.txtEmptyView);
         listOffers.setEmptyView(txtEmptyView);
-
+        rotateloading = (RotateLoading) rootView.findViewById(R.id.rotateloading);
         getStores();
     }
 
 
     private void getCoupons() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Promo Codes", true);
+        /*final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Promo Codes", true);
         circleDialog.setCancelable(true);
-        circleDialog.show();
+        circleDialog.show();*/
+       // rotateloading.start();
 
         new CallWebService(URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
 
-                circleDialog.dismiss();
+                //circleDialog.dismiss();
+                rotateloading.stop();
 
                 Log.e("RESP Coupon_Details", response);
 
@@ -112,6 +116,7 @@ public class OfferFragmentOne extends Fragment {
 
                     }
                 }catch(JSONException jsonEx) {
+                    rotateloading.stop();
                     Log.e("JSON EXCEPTION: ", jsonEx.toString());
                 }
             }
@@ -119,7 +124,8 @@ public class OfferFragmentOne extends Fragment {
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+              //  circleDialog.dismiss();
+                rotateloading.stop();
             }
         }.start();
     }
@@ -187,16 +193,18 @@ public class OfferFragmentOne extends Fragment {
     }
     private void getStores() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Stores", true);
+        /*final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", " Faida Recharge is Loading Stores", true);
         circleDialog.setCancelable(true);
-        circleDialog.show();
+        circleDialog.show();*/
+        rotateloading.start();
 
         new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
 
-                circleDialog.dismiss();
+                //circleDialog.dismiss();
+              // rotateloading.stop();
 
                 Log.e("RESP stores_Details", response);
 
@@ -216,6 +224,7 @@ public class OfferFragmentOne extends Fragment {
                         Log.e("storeItems", storeItems.toString());
                     }
                 }catch(JSONException jsonEx) {
+                    rotateloading.stop();
                     Log.e("JSON EXCEPTION: ", jsonEx.toString());
                 }
             }
@@ -223,7 +232,8 @@ public class OfferFragmentOne extends Fragment {
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+               // circleDialog.dismiss();
+                rotateloading.stop();
             }
         }.start();
     }

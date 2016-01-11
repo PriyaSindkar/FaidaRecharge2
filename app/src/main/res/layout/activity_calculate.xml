@@ -38,89 +38,140 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Variable 1:" />
+                    android:src="@drawable/ic_my_avg" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/L1_TEXT_SIZE"
-                    android:hint="Enter Monthly average Recharge/Bill Amount" />
+                    android:layout_margin="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="My Monthly Avg. Recharge Amount"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Variable 2:" />
+                    android:src="@drawable/ic_me" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/L1_TEXT_SIZE"
-                    android:hint="How Many Friends Can You Refer?" />
+                    android:layout_margin="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No. Of Friends I Can Refers"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Variable 3:" />
+                    android:src="@drawable/ic_friend" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/L1_TEXT_SIZE"
-                    android:hint="How Many Friends Can Your Friends Refer?" />
+                    android:layout_margin="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No. Of Friends My Friends Can Refers"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Variable 4:" />
+                    android:src="@drawable/ic_crowd" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/L1_TEXT_SIZE"
-                    android:hint="How Many Can Your Friends' Friends Refer?" />
+                    android:layout_margin="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="No. Of Friends My Friends' Friends Can Refers"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Variable 5:" />
+                    android:src="@drawable/ic_all_avg" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/L1_TEXT_SIZE"
-                    android:hint="Avg. Monthly Recharge Amount Of Your Friends and Their Friends?" />
+                    android:layout_margin="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Avg. Monthly Recharge Amount of All"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

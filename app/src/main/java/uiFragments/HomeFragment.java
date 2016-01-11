@@ -27,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.victor.loading.rotate.RotateLoading;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,6 +61,7 @@ public class HomeFragment extends Fragment{
     private ArrayList<CategoryModel> categoryItems;
     private ArrayList<StoreModel> storeItems;
     private HorizontalScrollView hScrollView, hScrollView2;
+    private RotateLoading rotateloading;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,8 +94,10 @@ public class HomeFragment extends Fragment{
         hScrollView2 = (HorizontalScrollView) rootView.findViewById(R.id.hScrollView2);
         hScrollView2.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
+        rotateloading = (RotateLoading) rootView.findViewById(R.id.rotateloading);
+
         getCategories();
-        getStores();
+
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -128,16 +132,19 @@ public class HomeFragment extends Fragment{
 
     private void getCategories() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        /*final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
         circleDialog.setCancelable(true);
-        circleDialog.show();
+        circleDialog.show();*/
+
+        rotateloading.start();
 
         new CallWebService(CATEGORIES_URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
 
-                circleDialog.dismiss();
+                //circleDialog.dismiss();
+
 
                 Log.e("RESP categories_Details", response);
 
@@ -154,6 +161,7 @@ public class HomeFragment extends Fragment{
                         //filterHomePageCouponList(couponList);
 
                         setCategories();
+                        getStores();
 
                     }
                 }catch(JSONException jsonEx) {
@@ -164,23 +172,25 @@ public class HomeFragment extends Fragment{
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+               // circleDialog.dismiss();
+                rotateloading.stop();
             }
         }.start();
     }
 
     private void getStores() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
+        /*final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
         circleDialog.setCancelable(true);
-        circleDialog.show();
+        circleDialog.show();*/
 
         new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
 
-                circleDialog.dismiss();
+               // circleDialog.dismiss();
+                rotateloading.stop();
 
                 Log.e("RESP stores_Details", response);
 
@@ -202,6 +212,7 @@ public class HomeFragment extends Fragment{
 
                     }
                 }catch(JSONException jsonEx) {
+                    rotateloading.stop();
                     Log.e("JSON EXCEPTION: ", jsonEx.toString());
                 }
             }
@@ -209,7 +220,8 @@ public class HomeFragment extends Fragment{
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+                //circleDialog.dismiss();
+                rotateloading.stop();
             }
         }.start();
     }

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ import uiCustomControls.RedirectToPortalDialog;
 public class OfferDetailsActivity extends ActionBarActivity {
 
     private TextView txtOfferTitle, txtOfferDetails, imgBack, txtPromoCode;
+    private LinearLayout linearPromoCode;
     private String description, code;
     private ImageView imgLogo;
     private String STORES_URL = "http://faidarecharge.com/admin/getStore.php";
@@ -66,6 +68,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
         txtOfferDetails = (TextView) findViewById(R.id.txtOfferDetails);
         txtPromoCode = (TextView) findViewById(R.id.txtPromoCode);
         imgLogo = (ImageView) findViewById(R.id.imgLogo);
+        linearPromoCode = (LinearLayout) findViewById(R.id.linearPromoCode);
 
         ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(OfferDetailsActivity.this, "coupon-details", 0);
         couponItem = complexPreferences.getObject("coupon-details", CouponItem.class);
@@ -94,7 +97,7 @@ public class OfferDetailsActivity extends ActionBarActivity {
             }
         });
 
-        txtPromoCode.setOnClickListener(new View.OnClickListener() {
+        linearPromoCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);

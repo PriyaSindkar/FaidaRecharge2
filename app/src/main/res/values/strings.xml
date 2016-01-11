@@ -29,8 +29,13 @@
     <string name="referral_system_intro_detail4">When your friends’ friend refer their friends: Then Also get 10% of their earning.</string>
 
     <string name="referral_system_intro_calculation" formatted="false">
-    How It Works:\n
-        Result = 1% Self Recharge Amount(Variable 1) + 0.1% of ( Total friends X their monthly recharge) => 1% of Variable 1 + 0.1% X ( Variable 2 X Variable 3 X Variable 4 X Variable 5)
+        Result = a + b => 1% of Variable 1 + 0.1% X ( Variable 2 X Variable 3 X Variable 4 X Variable 5)
+    </string>
+
+    <string name="referral_system_intro_calculation1" formatted="false">
+       a = 1% Self Recharge Amount(My Monthly Avg. Recharge)\n
+        b = 0.1% of ( My Total Friends x their monthly recharge) => \n
+       c = 1% of My Monthly Avg. Recharge + 0.1% x ( Variable 2 X Variable 3 X Variable 4 X Variable 5)
     </string>
 
     <string-array name="gender">

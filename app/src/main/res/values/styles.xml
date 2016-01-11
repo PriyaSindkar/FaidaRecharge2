@@ -14,7 +14,7 @@
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/white</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="Widget.CardContent" parent="android:Widget">
@@ -29,5 +29,13 @@
         <item name="android:background">@drawable/floating_menu_item_bg</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <!-- FLowLayout-->
+    <declare-styleable name="FlowLayout">
+        <attr name="android:gravity" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_Layout">
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
 
 </resources>

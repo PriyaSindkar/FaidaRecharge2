@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#bc000000"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/HEADER_SIZE"
+            android:background="@drawable/button"
+            android:orientation="horizontal"
+            android:padding="@dimen/STD_PADDING">
+
+            <TextView
+                android:id="@+id/txtHeading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/SMALL_STD_MARGIN"
+                android:layout_weight="1"
+                android:padding="@dimen/STD_PADDING"
+                android:text="How It Works"
+                android:textColor="@color/white"
+                android:textSize="@dimen/M_TEXT_SIZE" />
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_navigation_close" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/creameColor"
+            android:orientation="vertical"
+            android:padding="@dimen/SMALL_STD_MARGIN">
+
+            <LinearLayout
+                android:id="@+id/linearVariables"
+                android:layout_margin="@dimen/STD_MARGIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/STD_MARGIN"
+                android:background="@color/grey" />
+
+
+            <include layout="@layout/variables_result_item" />
+
+
+            <TextView
+                android:id="@+id/edHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/SMALL_STD_MARGIN"
+                android:text="Still Need Help? Call 9439590547"
+                android:textColor="#000"
+                android:textSize="@dimen/M_TEXT_SIZE"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

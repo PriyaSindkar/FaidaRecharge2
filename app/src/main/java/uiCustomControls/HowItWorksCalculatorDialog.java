@@ -3,10 +3,12 @@ package uiCustomControls;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,7 +21,8 @@ import faidarecharge.com.faidarecharge.R;
  */
 public class HowItWorksCalculatorDialog extends Dialog {
     ImageView cancel;
-    TextView edDetails, txtread, txtHeading;
+    TextView edDetails, txtHeading;
+    LinearLayout linearVariables;
 
     Context context;
 
@@ -32,7 +35,7 @@ public class HowItWorksCalculatorDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.terms_and_conditions_dialog);
+        setContentView(R.layout.calculate_how_it_works_dialog);
 
         ViewGroup.LayoutParams params = getWindow().getAttributes();
         params.width = RelativeLayout.LayoutParams.MATCH_PARENT;
@@ -47,14 +50,53 @@ public class HowItWorksCalculatorDialog extends Dialog {
             }
         });
 
-        edDetails = (TextView) findViewById(R.id.edDetails);
-        edDetails.setText(context.getString(R.string.referral_system_intro_calculation));
+/*        edDetails = (TextView) findViewById(R.id.edDetails);
+        edDetails.setText(context.getString(R.string.referral_system_intro_calculation));*/
 
-        txtread = (TextView) findViewById(R.id.txtread);
-        txtread.setVisibility(View.GONE);
+        linearVariables = (LinearLayout) findViewById(R.id.linearVariables);
 
-        txtHeading = (TextView) findViewById(R.id.txtHeading);
-        txtHeading.setText("How It Works");
+        initVariables();
+
+
+    }
+
+
+    private void initVariables() {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.variables_item, null);
+        ImageView imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        TextView txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_friend);
+        txtVariable.setText("No. Friends You Can Refer To");
+        linearVariables.addView(view);
+
+        view = inflater.inflate(R.layout.variables_item, null);
+        imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_crowd);
+        txtVariable.setText("No. Friends Your Friends Can Refer To");
+        linearVariables.addView(view);
+
+        view = inflater.inflate(R.layout.variables_item, null);
+        imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_my_avg);
+        txtVariable.setText("My Monthly Recharge Amount Avg.");
+        linearVariables.addView(view);
+
+        view = inflater.inflate(R.layout.variables_item, null);
+        imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_all_avg);
+        txtVariable.setText("Avg. Monthly Recharge Amount of All");
+        linearVariables.addView(view);
+
+        view = inflater.inflate(R.layout.variables_item, null);
+        imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_rupee);
+        txtVariable.setText("My Monthly Earnings");
+        linearVariables.addView(view);
 
     }
 }

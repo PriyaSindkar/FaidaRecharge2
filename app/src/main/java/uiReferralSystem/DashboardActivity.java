@@ -2,8 +2,14 @@ package uiReferralSystem;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -17,8 +23,8 @@ import org.w3c.dom.Text;
 import faidarecharge.com.faidarecharge.R;
 import uiCustomControls.TermsAndConditionsDialog;
 
-public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
-    TextView imgBack, txtReadMore,txtEarnAndRefer, txtHowToEarnAndRefer, txtKnowledgeBase;
+public class DashboardActivity extends ActionBarActivity implements View.OnClickListener{
+    TextView imgBack, txtReadMore,txtEarnAndRefer, txtHowToEarnAndRefer, txtKnowledgeBase, txtNew;
     FrameLayout frameOverlay;
     FloatingActionsMenu floatingActionsMenu;
     FloatingActionButton myProfileActionButton, myReferalStatusActionButton, myEarningActionButton, payoutActionButton, helpActionButton;
@@ -27,7 +33,6 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
-
         imgBack = (TextView) findViewById(R.id.imgBack);
         imgBack.setText("Dashboard");
 
@@ -48,6 +53,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         txtHowToEarnAndRefer.setOnClickListener(this);
         txtKnowledgeBase = (TextView) findViewById(R.id.txtKnowledgeBase);
         txtKnowledgeBase.setOnClickListener(this);
+        txtNew = (TextView) findViewById(R.id.txtNew);
 
         myProfileActionButton.setOnClickListener(this);
         myReferalStatusActionButton.setOnClickListener(this);
@@ -74,6 +80,16 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 frameOverlay.setOnTouchListener(null);
             }
         });
+
+        Shader textShader=new LinearGradient(0, 0, 0, 20,
+                new int[]{getResources().getColor(R.color.violet),getResources().getColor(R.color.indigo),
+                        getResources().getColor(R.color.blue),
+                        getResources().getColor(R.color.green),
+                        getResources().getColor(R.color.yellow),
+                        getResources().getColor(R.color.orange),
+                        getResources().getColor(R.color.red)},
+                new float[]{0,0.2f,0.4f,0.6f,0.8f,0.9f,1}, Shader.TileMode.CLAMP);
+        txtNew.getPaint().setShader(textShader);
     }
 
     @Override
@@ -113,7 +129,31 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 intent = new Intent(DashboardActivity.this, KnowledgeBaseActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.imgBack:
+                finish();
+                break;
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.dashboard_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uiCustomControls.FlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/STD_MARGIN"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rupee" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="=" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1%" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_my_avg" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 0.1% (" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_me" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_friend" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_crowd" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_all_avg" />
+
+    <TextView
+        android:padding="@dimen/STD_MARGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=")" />
+
+</uiCustomControls.FlowLayout>

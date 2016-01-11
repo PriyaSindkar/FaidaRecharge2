@@ -6,7 +6,6 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,38 +13,44 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="@dimen/VS_TEXT_SIZE"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@drawable/splash_image" />
 
-
-        <TextView
-            android:id="@+id/txtNewuser"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:background="@drawable/login_button"
-            android:gravity="center"
-            android:padding="@dimen/L1_TEXT_SIZE"
-            android:text="New User"
-            android:textColor="@color/white" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/txtLogin"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:background="@drawable/login_button"
-            android:gravity="center"
-            android:padding="@dimen/L1_TEXT_SIZE"
-            android:text="Login"
-            android:textColor="@color/white" />
 
+            <TextView
+                android:id="@+id/txtNewuser"
+                android:layout_width="@dimen/L_CIRCLE_SIZE"
+                android:layout_height="@dimen/L_CIRCLE_SIZE"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/L1_TEXT_SIZE"
+                android:textSize="@dimen/L_TEXT_SIZE"
+                android:background="@drawable/login_selector"
+                android:gravity="center"
+                android:padding="@dimen/L1_TEXT_SIZE"
+                android:text="New User"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="@dimen/L_CIRCLE_SIZE"
+                android:layout_height="@dimen/L_CIRCLE_SIZE"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/L1_TEXT_SIZE"
+                android:textSize="@dimen/L_TEXT_SIZE"
+                android:background="@drawable/login_selector"
+                android:gravity="center"
+                android:padding="@dimen/L1_TEXT_SIZE"
+                android:text="Login"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

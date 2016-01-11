@@ -1,41 +1,66 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
     tools:context=".MainActivity">
 
+    <include
+        layout="@layout/app_bar"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_margin="@dimen/STD_MARGIN"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="@dimen/VS_TEXT_SIZE"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/VS_TEXT_SIZE"
+            android:scaleType="centerInside"
             android:src="@drawable/splash_image" />
 
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtInputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:hint="Enter Username/Email"/>
+            android:layout_marginBottom="@dimen/STD_MARGIN">
 
-        <EditText
+            <EditText
+                android:id="@+id/edtInputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="UserName/Email"
+                android:inputType="text"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/M_TEXT_SIZE" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:inputType="textPassword"
-            android:hint="Enter password"/>
+            android:layout_marginBottom="@dimen/STD_MARGIN">
+
+            <EditText
+                android:id="@+id/edtInputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textWebPassword"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/M_TEXT_SIZE" />
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:id="@+id/txtLogin"

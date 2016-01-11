@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
+        android:layout_above="@+id/linearBottom"
         android:layout_margin="@dimen/STD_MARGIN">
 
         <LinearLayout
@@ -26,10 +27,21 @@
                 android:layout_margin="@dimen/STD_MARGIN"
                 android:orientation="vertical">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Reference Promo Code" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Reference Promo Code"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,11 +55,22 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
+                    android:layout_weight="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:hint="Nick Name" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="NickName"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,10 +84,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="First Name" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -72,10 +106,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Last Name" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -83,10 +128,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Date of Birth" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date Of Birth"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -94,10 +150,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email" />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -111,10 +178,21 @@
                     android:padding="@dimen/STD_MARGIN"
                     android:text="+91" />
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Mobile No." />
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mobile No."
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
 
@@ -122,9 +200,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:gravity="center">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/STD_MARGIN"
+                    android:text="Gender" />
+
                 <Spinner
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/gender" />
@@ -135,12 +221,25 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:text="India" />
+                    android:layout_marginTop="@dimen/STD_MARGIN"
+                    android:layout_marginBottom="@dimen/STD_MARGIN">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Country"
+                        android:text="India"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:singleLine="true"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/M_TEXT_SIZE" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
         </LinearLayout>

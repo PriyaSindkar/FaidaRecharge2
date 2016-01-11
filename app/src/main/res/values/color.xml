@@ -4,7 +4,9 @@
     <item name="white" type="color">#ffffff</item>
     <!--<item name="primaryColor" type="color">#8644ad</item>-->
     <!--<item name="primaryColor" type="color">#ff69b4</item>-->
+    <item name="colorAccent" type="color">#ff510d</item>
     <item name="primaryColor" type="color">#ff510d</item>
+    <item name="lightPrimaryColor" type="color">#ff6c33</item>
     <item name="promoCodeColor" type="color">#f79646</item>
     <item name="layoutBorderColor" type="color">#8064a2</item>
     <item name="highLightColor" type="color">#19b050</item>
@@ -14,6 +16,13 @@
     <item name="maroon" type="color">#cc0642</item>
     <item name="black" type="color">#000</item>
     <item name="grey" type="color">#d3d3d3</item>
+
+    <color  name="violet">#9400D3</color>
+    <color  name="indigo">#4B0082</color>
+    <color  name="blue">#0000FF</color>
+    <color  name="green">#00FF00</color>
+    <color  name="yellow">#FFFF00</color>
+    <color  name="orange">#FF7F00</color>
 
 
 

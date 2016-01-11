@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/txtTodaysOffers"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="@dimen/S_TEXT_SIZE"
+        android:layout_marginBottom="@dimen/STD_PADDING"
+        android:layout_marginLeft="@dimen/STD_PADDING"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/navyBlueColor"
+        android:text="Today's Offer: For Mobile, DTH Recharge and Bill Payments"/>
 
 
     <LinearLayout
@@ -17,6 +32,16 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txtSwipeHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textSize="@dimen/VS_TEXT_SIZE"
+            android:layout_marginLeft="@dimen/STD_MARGIN"
+            android:textColor="@color/navyBlueColor"
+            android:text="Tap here for more offers!"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -26,24 +51,42 @@
             android:textStyle="bold"
             android:text="Search Faida Offers as per your requirement"/>
 
-        <HorizontalScrollView
-            android:id="@+id/hScrollView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/linearCategories"
-                android:orientation="horizontal"
+            <com.victor.loading.rotate.RotateLoading
+                android:id="@+id/rotateloading"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:loading_width="5dp"
+                android:layout_gravity="center"
+                app:loading_color="@color/primaryColor"/>
+
+            <HorizontalScrollView
+                android:id="@+id/hScrollView"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
-                android:layout_height="@dimen/BUTTON_HEIGHT">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/linearCategories"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/SMALL_STD_MARGIN"
+                    android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
+                    android:layout_height="@dimen/BUTTON_HEIGHT">
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </FrameLayout>
 
 
 
-            </LinearLayout>
-
-        </HorizontalScrollView>
 
 
 
@@ -83,6 +126,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
+        android:layout_below="@id/txtTodaysOffers"
         android:layout_above="@id/linearBottom"
         android:layout_marginTop="@dimen/STD_MARGIN"
         android:layout_width="match_parent"
@@ -90,31 +134,8 @@
     </android.support.v4.view.ViewPager>
 
 
-    <TextView
-        android:id="@+id/txtSwipeHelp"
-        android:layout_above="@id/linearBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:textSize="@dimen/VS_TEXT_SIZE"
-        android:layout_marginLeft="@dimen/STD_MARGIN"
-        android:textColor="@color/navyBlueColor"
-        android:text="Tap here for more offers!"/>
 
-    <TextView
-        android:id="@+id/txtTodaysOffers"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/pager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:textSize="@dimen/S_TEXT_SIZE"
-        android:layout_marginBottom="@dimen/STD_MARGIN"
-        android:layout_marginLeft="@dimen/STD_PADDING"
-        android:layout_marginTop="8dp"
-        android:textStyle="bold"
-        android:textColor="@color/navyBlueColor"
-        android:text="Today's Offer: For Mobile, DTH Recharge and Bill Payments"/>
+
 
 
 </RelativeLayout>
