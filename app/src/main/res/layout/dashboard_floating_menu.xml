@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="right"
-        fab:fab_addButtonColorNormal="@color/primaryColor"
+        android:layout_marginBottom="@dimen/STD_MARGIN"
+        fab:fab_addButtonColorNormal="@color/maroon"
         fab:fab_addButtonColorPressed="@color/white"
         fab:fab_labelStyle="@style/menu_labels_style"
         fab:fab_addButtonPlusIconColor="#ffffff">

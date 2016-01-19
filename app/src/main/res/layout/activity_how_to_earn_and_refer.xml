@@ -67,22 +67,22 @@
                             android:layout_margin="@dimen/VS_TEXT_SIZE"
                             android:layout_weight="1"
                             android:background="@drawable/login_button"
-                            android:gravity="center"
-                            android:padding="@dimen/STD_MARGIN">
+                            android:gravity="center">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:padding="@dimen/STD_PADDING"
                                 android:src="@drawable/ic_calculator" />
 
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:ellipsize="end"
                                 android:gravity="center"
                                 android:maxLines="7"
-                                android:padding="@dimen/STD_PADDING"
+                                android:padding="@dimen/STD_MARGIN"
                                 android:singleLine="false"
                                 android:text="Estimate of Group Earning"
                                 android:textColor="@color/white"
@@ -96,22 +96,22 @@
                             android:layout_margin="@dimen/VS_TEXT_SIZE"
                             android:layout_weight="1"
                             android:background="@drawable/login_button"
-                            android:gravity="center"
-                            android:padding="@dimen/STD_MARGIN">
+                            android:gravity="center">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:padding="@dimen/STD_PADDING"
                                 android:src="@drawable/ic_calculator" />
 
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:ellipsize="end"
                                 android:gravity="center"
-                                android:maxLines="7"
-                                android:padding="@dimen/STD_PADDING"
+                                android:maxLines="2"
+                                android:padding="@dimen/STD_MARGIN"
                                 android:singleLine="false"
                                 android:text="Calculate an Estimate of Referral Earning"
                                 android:textColor="@color/white"

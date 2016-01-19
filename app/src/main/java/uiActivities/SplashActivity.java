@@ -29,6 +29,7 @@ import apiHelpers.EnumType;
 import apiHelpers.GetPostClass;
 import faidarecharge.com.faidarecharge.R;
 import login.BaseLoginFragment;
+import login.LoginActivity;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -162,7 +163,7 @@ public class SplashActivity extends ActionBarActivity {
                             public void response(String response) {
                                 Log.e("### res",response);
 
-                                Intent intent = new Intent(getBaseContext(), BaseLoginFragment.class);
+                                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
