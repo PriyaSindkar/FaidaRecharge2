@@ -21,7 +21,9 @@
             android:id="@+id/myProfileActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/primaryColor"
+            android:tint="@color/white"
+            android:tintMode="src_atop"
+            fab:fab_colorNormal="@color/maroon"
             fab:fab_colorPressed="@color/white"
             fab:fab_title="MY PROFILE" />
 
@@ -29,7 +31,9 @@
             android:id="@+id/myReferalStatusActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/primaryColor"
+            android:tint="@color/white"
+            android:tintMode="src_atop"
+            fab:fab_colorNormal="@color/maroon"
             fab:fab_colorPressed="@color/white"
             fab:fab_title="MY REFERRAL STATUS" />
 
@@ -37,7 +41,7 @@
             android:id="@+id/myEarningActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorNormal="@color/maroon"
             fab:fab_colorPressed="@color/white"
             fab:fab_title="MY EARNINGS" />
 
@@ -45,7 +49,7 @@
             android:id="@+id/payoutActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorNormal="@color/maroon"
             fab:fab_colorPressed="@color/white"
             fab:fab_title="PAYOUT" />
 
@@ -53,7 +57,7 @@
             android:id="@+id/helpActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/primaryColor"
+            fab:fab_colorNormal="@color/maroon"
             fab:fab_colorPressed="@color/white"
             fab:fab_title="HELP" />
 

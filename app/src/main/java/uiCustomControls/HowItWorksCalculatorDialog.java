@@ -66,15 +66,22 @@ public class HowItWorksCalculatorDialog extends Dialog {
         View view = inflater.inflate(R.layout.variables_item, null);
         ImageView imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
         TextView txtVariable = (TextView) view.findViewById(R.id.txtVariable);
-        imgVariable.setImageResource(R.drawable.ic_friend);
+        imgVariable.setImageResource(R.drawable.ic_me);
         txtVariable.setText("No. Friends You Can Refer To");
         linearVariables.addView(view);
 
         view = inflater.inflate(R.layout.variables_item, null);
         imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
         txtVariable = (TextView) view.findViewById(R.id.txtVariable);
-        imgVariable.setImageResource(R.drawable.ic_crowd);
+        imgVariable.setImageResource(R.drawable.ic_friend);
         txtVariable.setText("No. Friends Your Friends Can Refer To");
+        linearVariables.addView(view);
+
+        view = inflater.inflate(R.layout.variables_item, null);
+        imgVariable = (ImageView) view.findViewById(R.id.imgVariable);
+        txtVariable = (TextView) view.findViewById(R.id.txtVariable);
+        imgVariable.setImageResource(R.drawable.ic_crowd);
+        txtVariable.setText("No. Friends Your Friends' Friends Can Refer To");
         linearVariables.addView(view);
 
         view = inflater.inflate(R.layout.variables_item, null);

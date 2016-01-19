@@ -6,7 +6,7 @@
     <!--<item name="primaryColor" type="color">#ff69b4</item>-->
     <item name="colorAccent" type="color">#ff510d</item>
     <item name="primaryColor" type="color">#ff510d</item>
-    <item name="lightPrimaryColor" type="color">#ff6c33</item>
+    <item name="lightPrimaryColor" type="color">#ff9166</item>
     <item name="promoCodeColor" type="color">#f79646</item>
     <item name="layoutBorderColor" type="color">#8064a2</item>
     <item name="highLightColor" type="color">#19b050</item>

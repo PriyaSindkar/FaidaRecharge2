@@ -16,7 +16,7 @@
             android:layout_alignParentTop="true"
             android:padding="@dimen/VS_TEXT_SIZE"
             android:text="How To Use It?"
-            android:background="@color/creameColor"
+            android:background="@color/grey"
             android:textColor="@color/black" />
     </android.support.v7.widget.CardView>
 

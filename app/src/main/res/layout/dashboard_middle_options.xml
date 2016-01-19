@@ -6,6 +6,7 @@
     android:layout_alignParentBottom="true"
     android:background="@color/primaryColor"
     android:gravity="center"
+    android:layout_marginBottom="@dimen/STD_MARGIN"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android">
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:textColor="@color/white"
-    android:background="@color/promoCodeColor"
-    android:drawableRight="@drawable/icon_back"
+    android:textColor="@color/black"
+    android:background="@color/creameColor"
+    android:drawableRight="@drawable/ic_black_back"
     android:padding="@dimen/VS_TEXT_SIZE"/>

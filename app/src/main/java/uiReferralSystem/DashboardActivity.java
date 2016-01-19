@@ -3,6 +3,7 @@ package uiReferralSystem;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
+import android.graphics.PorterDuff;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -57,9 +58,19 @@ public class DashboardActivity extends ActionBarActivity implements View.OnClick
 
         myProfileActionButton.setOnClickListener(this);
         myReferalStatusActionButton.setOnClickListener(this);
+        myReferalStatusActionButton.setOnClickListener(this);
         myEarningActionButton.setOnClickListener(this);
         payoutActionButton.setOnClickListener(this);
         helpActionButton.setOnClickListener(this);
+
+        myProfileActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_me));
+        myProfileActionButton.setColorFilter(Color.argb(255, 255, 255, 255));
+        myEarningActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_my_avg));
+        //  myEarningActionButton.setImageTintList(getResources().getColor(R.color.white), PorterDuff.Mode.OVERLAY);
+        helpActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_help));
+        myReferalStatusActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_submit));
+        payoutActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_all_avg));
+        payoutActionButton.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.OVERLAY);
 
         floatingActionsMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

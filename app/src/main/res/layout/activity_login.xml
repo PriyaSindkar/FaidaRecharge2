@@ -68,7 +68,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="@dimen/L1_TEXT_SIZE"
-            android:background="@drawable/login_button"
+            android:background="@drawable/general_selector"
             android:gravity="center"
             android:padding="@dimen/L1_TEXT_SIZE"
             android:text="Login"
