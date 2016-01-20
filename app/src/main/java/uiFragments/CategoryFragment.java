@@ -42,6 +42,7 @@ import model.CategoryItem;
 import model.CouponItem;
 import model.StoreModel;
 import uiActivities.MyDrawerActivity;
+import uiCustomControls.CustomProgressDialog;
 
 /**
  * Created by Priya on 8/30/2015.
@@ -57,6 +58,7 @@ public class CategoryFragment extends Fragment {
     private ArrayList<StoreModel> storeItems;
     private ArrayList<CouponItem> searchList = new ArrayList<>();
     private TextView txtEmptyView;
+    CustomProgressDialog cd;
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
     }
@@ -91,16 +93,15 @@ public class CategoryFragment extends Fragment {
 
     private void getCoupons() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
-        circleDialog.setCancelable(true);
-        circleDialog.show();
+        cd = new CustomProgressDialog(getActivity(), R.style.CustomDialogsTheme);
+        cd.show();
+
 
         new CallWebService(URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
-
-                circleDialog.dismiss();
+                cd.dismiss();
 
                 Log.e("RESP Coupon_Details", response);
 
@@ -125,7 +126,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+               cd.dismiss();
             }
         }.start();
     }
@@ -193,16 +194,15 @@ public class CategoryFragment extends Fragment {
 
     private void getStores() {
 
-        final ProgressDialog circleDialog = ProgressDialog.show(getActivity(), "Please wait", "Loading...", true);
-        circleDialog.setCancelable(true);
-        circleDialog.show();
+        cd = new CustomProgressDialog(getActivity(), R.style.CustomDialogsTheme);
+        cd.show();
 
         new CallWebService(STORES_URL, CallWebService.TYPE_JSONOBJECT) {
 
             @Override
             public void response(String response) {
 
-                circleDialog.dismiss();
+                cd.dismiss();
 
                 Log.e("RESP stores_Details", response);
 
@@ -229,7 +229,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void error(VolleyError error) {
                 Log.e("VOLLEY ERROR", error.toString());
-                circleDialog.dismiss();
+                cd.dismiss();
             }
         }.start();
     }
