@@ -22,6 +22,12 @@ public class LoginActivity extends AppCompatActivity {
 
         imgBack = (TextView) findViewById(R.id.imgBack);
         imgBack.setText("Login");
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         txtLogin = (TextView) findViewById(R.id.txtLogin);
 
