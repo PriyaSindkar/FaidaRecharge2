@@ -93,6 +93,7 @@ public class SplashActivity extends ActionBarActivity {
             }
         }else{
             Toast.makeText(getApplicationContext(), "Please connect your Internet", Toast.LENGTH_LONG).show();
+            finish();
         }
 
 
@@ -194,8 +195,8 @@ public class SplashActivity extends ActionBarActivity {
     private boolean checkInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(SplashActivity.CONNECTIVITY_SERVICE);
         if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET).getState() == NetworkInfo.State.CONNECTED) {
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED)
+        {
             return true;
         } else {
             return false;

@@ -21,6 +21,13 @@ public class CalculateActivity extends AppCompatActivity {
 
         txtHowItWorks = (TextView) findViewById(R.id.txtHowItWorks);
 
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         txtHowItWorks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

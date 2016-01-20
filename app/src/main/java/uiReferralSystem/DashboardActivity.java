@@ -8,6 +8,7 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,18 +25,24 @@ import org.w3c.dom.Text;
 import faidarecharge.com.faidarecharge.R;
 import uiCustomControls.TermsAndConditionsDialog;
 
-public class DashboardActivity extends ActionBarActivity implements View.OnClickListener{
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
     TextView imgBack, txtReadMore,txtEarnAndRefer, txtHowToEarnAndRefer, txtKnowledgeBase, txtNew;
-    FrameLayout frameOverlay;
+    FrameLayout frameOverlay
+            ;
     FloatingActionsMenu floatingActionsMenu;
     FloatingActionButton myProfileActionButton, myReferalStatusActionButton, myEarningActionButton, payoutActionButton, helpActionButton;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_activity);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         imgBack = (TextView) findViewById(R.id.imgBack);
-        imgBack.setText("Dashboard");
+        imgBack.setOnClickListener(this);
 
         frameOverlay = (FrameLayout) findViewById(R.id.frameOverlay);
 
@@ -63,14 +70,11 @@ public class DashboardActivity extends ActionBarActivity implements View.OnClick
         payoutActionButton.setOnClickListener(this);
         helpActionButton.setOnClickListener(this);
 
-        myProfileActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_me));
-        myProfileActionButton.setColorFilter(Color.argb(255, 255, 255, 255));
-        myEarningActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_my_avg));
-        //  myEarningActionButton.setImageTintList(getResources().getColor(R.color.white), PorterDuff.Mode.OVERLAY);
+        myProfileActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_profile));
+        myEarningActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_my_earning));
         helpActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_help));
         myReferalStatusActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_submit));
-        payoutActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_all_avg));
-        payoutActionButton.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.OVERLAY);
+        payoutActionButton.setIconDrawable(getResources().getDrawable(R.drawable.ic_payout));
 
         floatingActionsMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override

@@ -2,6 +2,7 @@ package uiReferralSystem;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import faidarecharge.com.faidarecharge.R;
@@ -16,7 +17,12 @@ public class SignupActivity extends AppCompatActivity {
 
         imgBack = (TextView) findViewById(R.id.imgBack);
         imgBack.setText(getResources().getString(R.string.app_name));
-
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 }

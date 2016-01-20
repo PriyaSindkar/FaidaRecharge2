@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/BUTTON_WIDTH"
-    android:layout_height="@dimen/BUTTON_WIDTH"
-    android:paddingRight="@dimen/STD_PADDING">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/STD_PADDING">
 
     <TextView
         android:id="@+id/txtCategoryTitle"
-        android:layout_width="@dimen/CIRCLE_SIZE"
-        android:padding="@dimen/STD_MARGIN"
-        android:layout_height="@dimen/CIRCLE_SIZE"
-        android:gravity="center"
-        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/STD_MARGIN"
         android:background="@drawable/circle_bg"
+        android:gravity="center"
+        android:maxLines="2"
+        android:padding="@dimen/STD_MARGIN"
+        android:singleLine="false"
+        android:text="Paytm"
         android:textColor="@color/white"
-        android:textSize="@dimen/S_TEXT_SIZE"
-        android:text="Paytm"/>
+        android:textSize="@dimen/VVS1_TEXT_SIZE" />
 
 </RelativeLayout>

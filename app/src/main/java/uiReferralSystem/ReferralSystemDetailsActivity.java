@@ -40,6 +40,13 @@ public class ReferralSystemDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 

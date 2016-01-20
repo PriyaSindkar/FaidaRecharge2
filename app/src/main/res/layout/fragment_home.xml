@@ -67,18 +67,15 @@
                 android:id="@+id/hScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:id="@+id/linearCategories"
                     android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/SMALL_STD_MARGIN"
-                    android:layout_marginBottom="@dimen/SMALL_STD_MARGIN"
-                    android:layout_height="@dimen/BUTTON_HEIGHT">
+                    android:gravity="center"
+                    android:layout_margin="@dimen/SMALL_STD_MARGIN"
+                    android:layout_height="wrap_content">
 
                 </LinearLayout>
 

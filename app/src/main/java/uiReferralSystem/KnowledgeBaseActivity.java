@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -35,6 +36,13 @@ public class KnowledgeBaseActivity extends AppCompatActivity {
                         Context.LAYOUT_INFLATER_SERVICE), this);
 
         exlistview.setAdapter(adapter);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     public void setGroupParents() {
         parentItems.add(getString(R.string.kb_title1));

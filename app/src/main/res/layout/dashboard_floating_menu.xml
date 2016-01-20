@@ -13,7 +13,7 @@
         android:layout_gravity="right"
         android:layout_marginBottom="@dimen/STD_MARGIN"
         fab:fab_addButtonColorNormal="@color/maroon"
-        fab:fab_addButtonColorPressed="@color/white"
+        fab:fab_addButtonColorPressed="@color/tint_maroon"
         fab:fab_labelStyle="@style/menu_labels_style"
         fab:fab_addButtonPlusIconColor="#ffffff">
 
@@ -24,7 +24,7 @@
             android:tint="@color/white"
             android:tintMode="src_atop"
             fab:fab_colorNormal="@color/maroon"
-            fab:fab_colorPressed="@color/white"
+            fab:fab_colorPressed="@color/tint_maroon"
             fab:fab_title="MY PROFILE" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -34,7 +34,7 @@
             android:tint="@color/white"
             android:tintMode="src_atop"
             fab:fab_colorNormal="@color/maroon"
-            fab:fab_colorPressed="@color/white"
+            fab:fab_colorPressed="@color/tint_maroon"
             fab:fab_title="MY REFERRAL STATUS" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/maroon"
-            fab:fab_colorPressed="@color/white"
+            fab:fab_colorPressed="@color/tint_maroon"
             fab:fab_title="MY EARNINGS" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/maroon"
-            fab:fab_colorPressed="@color/white"
+            fab:fab_colorPressed="@color/tint_maroon"
             fab:fab_title="PAYOUT" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/maroon"
-            fab:fab_colorPressed="@color/white"
+            fab:fab_colorPressed="@color/tint_maroon"
             fab:fab_title="HELP" />
 
 
