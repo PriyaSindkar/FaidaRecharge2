@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,13 +30,13 @@ public class RedirectToPortalDialog extends Dialog {
     Context context;
     TextView footerText, edDetails, edHelp, txtGoToPortal;
     boolean isClicked = false;
-    private String WEB_LINK,STORE;
+    private String WEB_LINK, STORE;
 
-    public RedirectToPortalDialog(Context context,String link,String store) {
+    public RedirectToPortalDialog(Context context, String link, String store) {
         super(context);
         this.context = context;
-        this.WEB_LINK  = link;
-        this.STORE  = store;
+        this.WEB_LINK = link;
+        this.STORE = store;
     }
 
     @Override
@@ -94,7 +95,6 @@ public class RedirectToPortalDialog extends Dialog {
         edHelp.setText(sp3);*/
 
 
-
         txtGoToPortal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,35 +105,59 @@ public class RedirectToPortalDialog extends Dialog {
                 //Intent i = new Intent(Intent.ACTION_VIEW);
                 //i.setData(Uri.parse(url));
                 //context.startActivity(i);
-
-                Activity act = (Activity)context;
-                context.startActivity(new Intent(act, WebView.class).putExtra("link",url).putExtra("store", STORE));
-
-
                 dismiss();
+                if(!isPaytmInstalled()) {
+                    Activity act = (Activity) context;
+                    context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
+                }else{
+                    Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
+                    context.startActivity(LaunchIntent);
+                }
+
+
             }
         });
 
-        new CountDownTimer(20000,1000) {
+        new CountDownTimer(20000, 1000) {
 
             @Override
             public void onFinish() {
-                if(!isClicked) {
+                if (!isClicked) {
                     String url = WEB_LINK;
 
                     //Intent i = new Intent(Intent.ACTION_VIEW);
                     //i.setData(Uri.parse(url));
-
-                    Activity act = (Activity)context;
-                    context.startActivity(new Intent(act, WebView.class).putExtra("link",url).putExtra("store",STORE));
-
                     dismiss();
+                    if(!isPaytmInstalled()) {
+                        Activity act = (Activity) context;
+                        context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
+                    }else{
+                        Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
+                        context.startActivity(LaunchIntent);
+                    }
+
+
                 }
             }
+
             @Override
             public void onTick(long millisUntilFinished) {
             }
         }.start();
 
     }
+
+    private boolean isPaytmInstalled() {
+        PackageManager pm = context.getPackageManager();
+        boolean app_installed = false;
+        try {
+            pm.getPackageInfo(context.getResources().getString(R.string.paytm_package), PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed;
+    }
+
+
 }

@@ -4,6 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_search">Search</string>
 
+    <string name="paytm_package">net.one97.paytm</string>
+
     <string name="my_drawer_activity">Home</string>
     <string name="offer_details">Offer Details</string>
 
