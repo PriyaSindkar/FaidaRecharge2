@@ -132,13 +132,13 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
                 fragmentTransaction.commit();
                 return true;
 
-            case R.id.refer_and_earn:
+         /*   case R.id.refer_and_earn:
                 Fragment refernearnFrag = new BaseLoginFragment();
                 fragmentTransaction.replace(R.id.frame, refernearnFrag);
                 fragmentTransaction.commit();
-                /*Intent intent = new Intent(this, BaseLoginFragment.class);
-                startActivity(intent);*/
-                return true;
+                *//*Intent intent = new Intent(this, BaseLoginFragment.class);
+                startActivity(intent);*//*
+                return true;*/
 
             case R.id.share:
                 Fragment shAREfrAG= new ShareFragment();

@@ -164,7 +164,7 @@ public class SplashActivity extends ActionBarActivity {
                             public void response(String response) {
                                 Log.e("### res",response);
 
-                                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                                Intent intent = new Intent(getBaseContext(), MyDrawerActivity.class);
                                 startActivity(intent);
                                 finish();
                             }

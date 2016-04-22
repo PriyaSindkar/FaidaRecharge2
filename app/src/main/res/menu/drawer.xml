@@ -18,10 +18,10 @@
             android:checked="false"
             android:title="Share the Love" />
 
-        <item
+      <!--  <item
             android:id="@+id/refer_and_earn"
             android:checked="false"
-            android:title="Refer and Earn" />
+            android:title="Refer and Earn" />-->
 
         <item
             android:id="@+id/write_to_us"
