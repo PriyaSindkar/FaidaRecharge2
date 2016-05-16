@@ -21,6 +21,6 @@
         android:textColor="@color/primaryColor"
         android:textSize="@dimen/L_TEXT_SIZE"
         android:layout_centerInParent="true"
-        android:text="We are fething Coupon for you."/>
+        android:text="We are fetching Coupon for you."/>
 
 </RelativeLayout>

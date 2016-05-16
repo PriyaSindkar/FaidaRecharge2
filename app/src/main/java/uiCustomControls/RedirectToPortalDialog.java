@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -106,12 +107,19 @@ public class RedirectToPortalDialog extends Dialog {
                 //i.setData(Uri.parse(url));
                 //context.startActivity(i);
                 dismiss();
-                if(!isPaytmInstalled()) {
+
+                Log.e("STORE",""+STORE);
+                if(STORE.equalsIgnoreCase("Paytm")) {
+                    if (!isPaytmInstalled()) {
+                        Activity act = (Activity) context;
+                        context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
+                    } else {
+                        Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
+                        context.startActivity(LaunchIntent);
+                    }
+                }else{
                     Activity act = (Activity) context;
                     context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
-                }else{
-                    Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
-                    context.startActivity(LaunchIntent);
                 }
 
 
@@ -128,12 +136,18 @@ public class RedirectToPortalDialog extends Dialog {
                     //Intent i = new Intent(Intent.ACTION_VIEW);
                     //i.setData(Uri.parse(url));
                     dismiss();
-                    if(!isPaytmInstalled()) {
+
+                    if(STORE.equalsIgnoreCase("Paytm")) {
+                        if (!isPaytmInstalled()) {
+                            Activity act = (Activity) context;
+                            context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
+                        } else {
+                            Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
+                            context.startActivity(LaunchIntent);
+                        }
+                    }else {
                         Activity act = (Activity) context;
                         context.startActivity(new Intent(act, WebView.class).putExtra("link", url).putExtra("store", STORE));
-                    }else{
-                        Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(context.getResources().getString(R.string.paytm_package));
-                        context.startActivity(LaunchIntent);
                     }
 
 
