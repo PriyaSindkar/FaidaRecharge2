@@ -1,5 +1,6 @@
 package uiActivities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -62,6 +64,26 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
         Fragment homeFragment = new HomeFragment();
         fragmentTransaction.replace(R.id.frame, homeFragment);
         fragmentTransaction.commit();
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String pushMessage = getIntent().getStringExtra("msg");
+        if(pushMessage!=null){
+            new AlertDialog.Builder(MyDrawerActivity.this)
+                    .setTitle("New Faida!")
+                    .setMessage(pushMessage)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+        }
     }
 
     public void setToolbarTitle(String title) {

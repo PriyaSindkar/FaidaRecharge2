@@ -118,7 +118,6 @@ public class SplashActivity extends ActionBarActivity {
                         gcm = GoogleCloudMessaging.getInstance(SplashActivity.this);
                     }
                     regid = gcm.register(PROJECT_NUMBER);
-                   // regid ="dd";
 
                     Log.e("GCM ID :", regid);
                     if(regid==null || regid==""){
