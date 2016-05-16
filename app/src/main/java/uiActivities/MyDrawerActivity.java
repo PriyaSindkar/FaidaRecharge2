@@ -11,10 +11,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import apiHelpers.PrefUtils;
 import faidarecharge.com.faidarecharge.R;
 import login.BaseLoginFragment;
 import uiFragments.AboutFragment;
@@ -59,6 +61,9 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+
+
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment homeFragment = new HomeFragment();
@@ -69,13 +74,18 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        String pushMessage = getIntent().getStringExtra("msg");
-        if(pushMessage!=null){
+        String pushMessage = "NA";
+        pushMessage = PrefUtils.getPushMessage(MyDrawerActivity.this);
+
+        if(!pushMessage.equalsIgnoreCase("NA")){
+            Log.e("PUSH MESSAG",pushMessage);
             new AlertDialog.Builder(MyDrawerActivity.this)
                     .setTitle("New Faida!")
+                    .setCancelable(false)
                     .setMessage(pushMessage)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
@@ -83,6 +93,7 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
                             dialog.dismiss();
                         }
                     }).show();
+            PrefUtils.setPushMessage(MyDrawerActivity.this,"NA");
         }
     }
 

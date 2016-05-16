@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import apiHelpers.PrefUtils;
 import faidarecharge.com.faidarecharge.R;
 
 
@@ -82,6 +83,8 @@ public class GcmMessageHandler extends IntentService {
         Notification notification = new Notification(icon, message, when);
 
         String title = this.getString(R.string.app_name);
+
+        PrefUtils.setPushMessage(getApplicationContext(),message);
 
         Intent notificationIntent = new Intent(this, MyDrawerActivity.class);
         notificationIntent.putExtra("msg",message);
