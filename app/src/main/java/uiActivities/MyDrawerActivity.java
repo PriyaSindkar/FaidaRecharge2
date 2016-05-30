@@ -70,8 +70,6 @@ public class MyDrawerActivity extends AppCompatActivity implements NavigationVie
         fragmentTransaction.replace(R.id.frame, homeFragment);
         fragmentTransaction.commit();
 
-
-
     }
 
 

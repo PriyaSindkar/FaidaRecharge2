@@ -32,11 +32,6 @@ public class WebView extends AppCompatActivity {
 
         String url = getIntent().getStringExtra("link");
 
-
-
-
-
-
         wv1=(android.webkit.WebView)findViewById(R.id.webView);
         wv1.setWebViewClient(new MyBrowser());
 
